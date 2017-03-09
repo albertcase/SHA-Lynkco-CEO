@@ -1,0 +1,38 @@
+
+#pin-question-2{
+  .question-wrap{
+    position: absolute;
+    left: 0%;
+    bottom: 0;
+    width: 100%;
+    height: 9rem;
+    //@include transform(translate(-50%,0%));
+  }
+  .question-content{
+    @include size(4.61rem,7.61rem);
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    @include transform(translate(-50%,0%));
+  }
+  .q-lists{
+    .item{
+      position: absolute;
+    }
+    .item-a{
+      top: 50%;
+      left: 0.7rem;
+      @include transform(translate(-100%,-50%));
+    }
+    .item-b{
+      top: 50%;
+      right: 0.7rem;
+      @include transform(translate(100%,-50%));
+    }
+    .item-c{
+      left: 50%;
+      bottom: 0.7rem;
+      @include transform(translate(-50%,100%));
+    }
+  }
+}
