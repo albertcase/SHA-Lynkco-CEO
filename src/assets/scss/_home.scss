@@ -1,0 +1,14 @@
+//common setting
+.bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include size(100%,100%);
+  z-index: 1;
+  background: #0d1626;
+}
+
+//for landing page
+#pin-landing{
+  color: #fff;
+}

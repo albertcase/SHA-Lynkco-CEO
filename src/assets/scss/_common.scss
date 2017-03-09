@@ -51,9 +51,9 @@ body {
   font-family: 'Microsoft Yahei',sans-serif;
   line-height: 1.5;
   font-size: .24rem;
-  color: #000;
+  color: #fff;
   letter-spacing: 2px;
-  background: #fff;
+  background: #000;
 }
 * {
   -webkit-touch-callout:none;
@@ -622,6 +622,9 @@ html,body{
   top: 0;
   z-index: 1;
   @include size(100%,100%);
+}
+.container{
+  z-index: 2;
 }
 
 .pin{

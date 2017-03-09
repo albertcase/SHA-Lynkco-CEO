@@ -242,6 +242,9 @@ $(document).ready(function(){
 	$('body').on('touchstart','.btn-alert-ok',function(){
 		$(this).parent().parent('.alertpop').remove();
 	});
+
+	Common.gotoPin(3);
+
 });
 
 
