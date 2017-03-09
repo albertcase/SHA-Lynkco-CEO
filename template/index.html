@@ -12,7 +12,7 @@
     <script src="/src/assets/js/lib/zepto.min.js"></script>
     <script src="/src/assets/js/rem.js"></script>
     <script src="/src/assets/js/common.js"></script>
-    <!--<script src="/src/assets/js/api.js"></script>-->
+    <script src="/src/assets/js/controller.js"></script>
     <!--<script src="/src/assets/js/exchange.js"></script>-->
 </head>
 <body class="page-home">
@@ -78,10 +78,11 @@
                         <li class="item">吞吐宇宙的“最强脑洞”</li>
                     </ul>
                     <div class="input-box input-box-custom">
-                        <input type="text" placeholder="在此输入自己的答案"/>
+                        <input type="text" id="self-evaluation" placeholder="在此输入自己的答案"/>
                     </div>
                 </div>
             </div>
+            <div class="btn btn-next">next</div>
         </div>
         <!-- question 2 请用一件事证明你的能动力-->
         <div class="pin pin-4 pin-question" id="pin-question-2">
@@ -124,6 +125,77 @@
                 <!-- 倒计时-->
                 <div class="btn btn-time">14.20s</div>
             </div>
+        </div>
+        <!-- question 2 请用一件事证明你的能动力-->
+        <div class="pin pin-6 pin-question" id="pin-question-4">
+            <div class="question-wrap">
+                <div class="question-content">
+                    <div class="q-num">01</div>
+                    <div class="q-title">CEO</div>
+                    <h3 class="title">请用一件事证明你的能动力</h3>
+                    <div class="tips">晃动手机找出答案</div>
+                </div>
+                <ul class="q-lists">
+                    <li class="item item-A">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                    <li class="item item-B">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                    <li class="item item-C">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- question 2 请用一件事证明你的能动力-->
+        <div class="pin pin-7 pin-question" id="pin-question-5">
+            <div class="question-wrap">
+                <div class="question-content">
+                    <div class="q-num">01</div>
+                    <div class="q-title">CEO</div>
+                    <h3 class="title">请用一件事证明你的能动力</h3>
+                    <div class="tips">晃动手机找出答案</div>
+                </div>
+                <ul class="q-lists">
+                    <li class="item item-A">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                    <li class="item item-B">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                    <li class="item item-C">
+                        <div class="tt">A</div>
+                        <div class="answer">勇敢去表达把自己的故事纹在身上</div>
+                        <div class="btn btn-selected">就选他</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 点击上传照片-->
+        <div class="pin pin-8" id="pin-upload">
+            <div class="upload-wrap">
+                <div class="btn-upload">
+                    <span class="icon">+</span>
+                    点击上传照片
+                </div>
+            </div>
+            <div class="tips">
+                最后，请上传一张趣照
+                以便让大家膜拜
+            </div>
+            <input type="file" id="input-upload" accept="image/png,image.jpg,image.gif"/>
         </div>
 
 

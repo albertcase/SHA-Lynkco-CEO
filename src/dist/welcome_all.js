@@ -278,8 +278,6 @@ $(document).ready(function(){
 		$(this).parent().parent('.alertpop').remove();
 	});
 
-	Common.gotoPin(3);
-
 });
 
 
