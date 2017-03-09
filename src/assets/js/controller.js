@@ -26,9 +26,32 @@
     controller.prototype.init = function(){
         var self = this;
 
-        //bind events
-        self.bindEvent();
-        Common.gotoPin(7);
+        var baseurl = ''+'/src/images/';
+        var imagesArray = [
+            baseurl + 'q2-a.png',
+            baseurl + 'q2-b.png',
+            baseurl + 'q2-c.png',
+            baseurl + 'q2-content.png',
+        ];
+        var i = 0;
+        new preLoader(imagesArray, {
+            onProgress: function(){
+
+            },
+            onComplete: function(){
+                //bind events
+                self.bindEvent();
+                Common.gotoPin(3);
+                //set all img element width
+                for(var i=0;i<document.getElementsByTagName('img').length;i++){
+                    document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
+                    document.getElementsByTagName('img')[i].style.height = document.getElementsByTagName('img')[i].naturalHeight / 100 + 'rem';
+                };
+            }
+        });
+
+
+
 
 
     };

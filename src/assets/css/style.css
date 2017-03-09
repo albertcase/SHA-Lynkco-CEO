@@ -1058,9 +1058,7 @@ html, body {
 .btn {
   text-align: center;
   display: block;
-  width: 2.7rem;
   margin: 0 auto;
-  padding: 0.2rem 1rem;
   background: #000;
   color: #fff;
   font-size: 0.32rem;
@@ -1093,4 +1091,54 @@ html, body {
 
 #pin-landing {
   color: #fff;
+}
+
+#pin-question-2 .question-wrap {
+  position: absolute;
+  left: 0%;
+  bottom: 0;
+  width: 100%;
+  height: 9rem;
+}
+#pin-question-2 .question-content {
+  width: 4.61rem;
+  height: 7.61rem;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  -o-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+#pin-question-2 .q-lists .item {
+  position: absolute;
+}
+#pin-question-2 .q-lists .item-a {
+  top: 50%;
+  left: 0.7rem;
+  -webkit-transform: translate(-100%, -50%);
+  -moz-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  -o-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+#pin-question-2 .q-lists .item-b {
+  top: 50%;
+  right: 0.7rem;
+  -webkit-transform: translate(100%, -50%);
+  -moz-transform: translate(100%, -50%);
+  -ms-transform: translate(100%, -50%);
+  -o-transform: translate(100%, -50%);
+  transform: translate(100%, -50%);
+}
+#pin-question-2 .q-lists .item-c {
+  left: 50%;
+  bottom: 0.7rem;
+  -webkit-transform: translate(-50%, 100%);
+  -moz-transform: translate(-50%, 100%);
+  -ms-transform: translate(-50%, 100%);
+  -o-transform: translate(-50%, 100%);
+  transform: translate(-50%, 100%);
 }

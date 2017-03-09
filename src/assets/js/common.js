@@ -26,11 +26,16 @@
 
 			return '?'+newQuery;
 		},
-		msgBox:function(msg,long){
-			if(long){
-				$('body').append('<div class="ajaxpop msgbox minwidthbox"><div class="loading">'+msg+'</div></div>');
-			}else{
-				$('body').append('<div class="ajaxpop msgbox"><div class="loading"><div class="icon-loading"></div>'+msg+'</div></div>');
+		msgBox:{
+			add:function(msg,long){
+				if(long){
+					$('body').append('<div class="ajaxpop msgbox minwidthbox"><div class="loading">'+msg+'</div></div>');
+				}else{
+					$('body').append('<div class="ajaxpop msgbox"><div class="loading"><div class="icon-loading"></div>'+msg+'</div></div>');
+				}
+			},
+			remove:function(){
+				$('.ajaxpop').remove();
 			}
 		},
 		errorMsg : {
