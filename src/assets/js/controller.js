@@ -60,6 +60,8 @@
     controller.prototype.bindEvent = function(){
         var self = this;
 
+
+
         //select question 1
         $('#pin-question-1 .q-lists .item').on('touchstart',function(){
             var curIndex = $(this).index();
@@ -104,15 +106,40 @@
         });
 
 
+    //    shake the device
+        var o = new Orienter();
+        o.onOrient = function (obj) {
+            if($('.pin-question.current .canshake').length){
+                var leftWith = $('.pin.current .q-lists .item-a').width();
+                var rightWith = -$('.pin.current .q-lists .item-b').width();
+                var bottomHeight = $('.pin.current .q-lists .item-c').height();
+                if(obj.g<-30){
+                    $('.pin-question.current .question-wrap').css('left',leftWith);
 
+                }else if(obj.g>30){
+                    $('.pin-question.current .question-wrap').css('left',rightWith);
+                }else{
+                    $('.pin-question.current .question-wrap').css('left','0%');
+                }
 
-
-
-
-
+                if(obj.b>10){
+                    $('.pin-question.current .question-wrap').css('bottom',bottomHeight);
+                }else{
+                    $('.pin-question.current .question-wrap').css('bottom','0');
+                }
+            }else{
+                console.log('can not shake');
+            }
+            //console.log(obj);
+        };
+        o.init();
 
     };
 
+    //controller.prototype.goQuestion2 = function(ele,isEnable){
+    //    Common.gotoPin(3);
+    //    self.enableShake = true;
+    //};
 
     $(document).ready(function(){
 //    show form
@@ -122,3 +149,6 @@
     });
 
 })();
+
+
+

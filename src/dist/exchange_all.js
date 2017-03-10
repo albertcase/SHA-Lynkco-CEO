@@ -268,9 +268,9 @@ var Zepto=function(){function L(t){return null==t?String(t):j[S.call(t)]||"objec
 		return module;
 	}();
 
-	//noBounce.init({
-	//	animate: false
-	//});
+	noBounce.init({
+		animate: false
+	});
 
 	this.Common = Common;
 

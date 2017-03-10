@@ -233,9 +233,9 @@
 		return module;
 	}();
 
-	//noBounce.init({
-	//	animate: false
-	//});
+	noBounce.init({
+		animate: false
+	});
 
 	this.Common = Common;
 
