@@ -21,6 +21,9 @@
             q5:0
         };
 
+        //init the canvas
+        this.canvas = new fabric.Canvas('c');
+
     };
     //init
     controller.prototype.init = function(){
@@ -42,7 +45,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(4);
+                Common.gotoPin(7);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
@@ -154,6 +157,14 @@
         };
         o.init();
 
+
+    //    upload img
+        //input file change
+        $('#capture').on('change', function(e){
+            //var canvaswidth = $('.block-photo').width();;
+            self.uploadPhoto(e.target,300);
+        });
+
     };
 
     //count down
@@ -172,6 +183,35 @@
             }
         }, 100);
     };
+
+    controller.prototype.uploadPhoto = function(ele,canvaswidth){
+        var self = this;
+
+        lrz(ele.files[0],{width:canvaswidth*2},{quality:1})
+            .then(function (rst) {
+                // 处理成功会执行
+                //step=1;
+                fabric.Image.fromURL(rst.base64,function(imgobj){
+                    imgobj.scale(0.5);
+                    imgobj.set({
+                        selectable:true,
+                        hasControls:false,
+                        hasBorders:false
+                    });
+                    console.log(self.canvas);
+                    self.canvas.add(imgobj);
+
+                });
+                $('.btn-camera').addClass('hide');
+            })
+            .catch(function (err) {
+                // 处理失败会执行
+            })
+            .always(function () {
+                // 不管是成功失败，都会执行
+            });
+
+    },
 
     $(document).ready(function(){
 //    show form
