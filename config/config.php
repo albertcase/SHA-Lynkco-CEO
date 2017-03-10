@@ -1,6 +1,6 @@
 <?php
 
-define("BASE_URL", 'http://guitarstrapvalentino.samesamechina.com/');
+define("BASE_URL", 'http://lynkcoceo.samesamechina.com/');
 define("TEMPLATE_ROOT", dirname(__FILE__) . '/../template');
 define("VENDOR_ROOT", dirname(__FILE__) . '/../vendor');
 
@@ -12,8 +12,8 @@ define("WECHAT_VENDOR", 'default'); // default | curio
 
 //Wechat config info
 define("TOKEN", '?????');
-define("APPID", 'wxeb57276615f0d9f1');
-define("APPSECRET", '42ac444f36a854b3dc3c66bdc59c98cc');
+define("APPID", 'wx9c8aaaea687de3c0');
+define("APPSECRET", 'f369c8b80e74809324fbe6126505525d');
 define("APPMCHID", '1339055101');
 define("APPKEY", '0e861438632e4359929e9dcc143acd47');
 define("NOWTIME", date('Y-m-d H:i:s'));
@@ -27,10 +27,10 @@ define("REDIS_HOST", '127.0.0.1');
 define("REDIS_PORT", '6379');
 
 //Database config info
-define("DBHOST", '10.10.153.132');
+define("DBHOST", '127.0.0.1');
 define("DBUSER", 'root');
-define("DBPASS", '4IF5SvHFFBFhRXi0');
-define("DBNAME", 'valentino_valentine');
+define("DBPASS", '1q2w3e');
+define("DBNAME", 'lynkco_ceo');
 
 //Wechat Authorize
 define("CALLBACK", 'wechat/callback');
