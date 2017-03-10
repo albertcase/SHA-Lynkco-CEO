@@ -7,7 +7,7 @@
         this.questionScore = {
             q1:[10,10,10,10,10,20],
             q2:[10,10,20],
-            q3:[10,10,20], //用秒来计时，时间不一样，对应的分值也不同
+            q3:12, //用秒来计时，时间不一样，对应的分值也不同,默认分值是12
             q4:[10,10,20],
             q5:[10,10,20]
         };
@@ -41,7 +41,8 @@
             onComplete: function(){
                 //bind events
                 self.bindEvent();
-                Common.gotoPin(3);
+
+                Common.gotoPin(4);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
@@ -68,6 +69,7 @@
             $(this).addClass('active').siblings().removeClass('active');
             self.selectedOption.q1 = curIndex;
         });
+
         $('#pin-question-1 .btn-next').on('click',function(){
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
@@ -79,15 +81,33 @@
         //select question 2
         $('#pin-question-2 .q-lists .btn-selected').on('click',function(){
             var curIndex = $(this).parent().index();
-            console.log(curIndex);
             self.selectedOption.q2 = curIndex;
             Common.gotoPin(4);
+            //count down
+            self.countDown();
         });
 
         //select question 3,倒计时中
         $('#pin-question-3 .btn-time').on('click',function(){
             //记录倒计时的时间和对应的分值
-            self.selectedOption.q3 = '10';
+            //15-13==>20
+            //12-10==>18
+            //9-7==>16
+            //6-4==>14
+            //3-0==>12
+
+            var curTime = parseInt($('#countdown').html());
+            if(curTime<15 && curTime >= 13){
+                self.selectedOption.q3 = 12+8;
+            }else if(curTime<13 && curTime >= 10){
+                self.selectedOption.q3 = 12+6;
+            }else if(curTime<10 && curTime >= 7){
+                self.selectedOption.q3 = 12+4;
+            }else if(curTime<7 && curTime >= 4){
+                self.selectedOption.q3 = 12+2;
+            }else{
+                self.selectedOption.q3 = 12;
+            }
             Common.gotoPin(5);
         });
 
@@ -136,10 +156,22 @@
 
     };
 
-    //controller.prototype.goQuestion2 = function(ele,isEnable){
-    //    Common.gotoPin(3);
-    //    self.enableShake = true;
-    //};
+    //count down
+    //millisecond
+    controller.prototype.countDown = function(){
+        var millisecond = 15000;
+        var p = document.getElementById("countdown");
+        var set = setInterval(function() {
+            //time--;
+            millisecond = millisecond - 100;
+            var seconds = (millisecond / 1000).toFixed(2) + 's';
+            p.innerHTML = seconds;
+            if(millisecond < 100) {
+                p.innerHTML = "0.00s";
+                clearInterval(set);
+            }
+        }, 100);
+    };
 
     $(document).ready(function(){
 //    show form
