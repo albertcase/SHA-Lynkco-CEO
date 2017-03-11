@@ -31,10 +31,26 @@
 
         var baseurl = ''+'/src/images/';
         var imagesArray = [
+            baseurl + 'bg.jpg',
+            baseurl + 'p1-t1.png',
+            baseurl + 'p2-1.jpg',
+            baseurl + 'question-1.jpg',
             baseurl + 'q2-a.png',
             baseurl + 'q2-b.png',
             baseurl + 'q2-c.png',
             baseurl + 'q2-content.png',
+            baseurl + 'question-3.jpg',
+            baseurl + 'upload-bg.jpg',
+            baseurl + 'q4-a.png',
+            baseurl + 'q4-b.png',
+            baseurl + 'q4-c.png',
+            baseurl + 'q4-content.png',
+            baseurl + 'q5-a.png',
+            baseurl + 'q5-b.png',
+            baseurl + 'q5-c.png',
+            baseurl + 'q5-content.png',
+            baseurl + 'btn-upload.png',
+            baseurl + 'image-overlay.png',
         ];
         var i = 0;
         new preLoader(imagesArray, {
@@ -45,7 +61,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(0);
+                Common.gotoPin(2);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
@@ -64,7 +80,14 @@
     controller.prototype.bindEvent = function(){
         var self = this;
 
+        //from landing page to next page
+        $('#pin-landing .btn-gonext').on('touchstart',function(){
+            Common.gotoPin(1);
 
+            var goQuePage = setTimeout(function(){
+                Common.gotoPin(2);
+            },2000);
+        });
 
         //select question 1
         $('#pin-question-1 .q-lists .item').on('touchstart',function(){
