@@ -1108,6 +1108,58 @@ html, body {
   text-indent: -999em;
 }
 
+#pin-question-1 .question-wrap > img {
+  position: relative;
+  z-index: 1;
+}
+#pin-question-1 .q-lists {
+  position: absolute;
+  z-index: 2;
+  top: 3.56rem;
+  left: 0.5rem;
+  font-size: 0.32rem;
+}
+#pin-question-1 .q-lists .item {
+  position: relative;
+  margin-bottom: 0.3rem;
+  text-indent: -999em;
+  width: 5rem;
+  height: 0.45rem;
+}
+#pin-question-1 .q-lists .item:before {
+  content: '';
+  display: inline-block;
+  width: 0.1rem;
+  height: 0.1rem;
+  position: absolute;
+  z-index: 2;
+  left: -0.2rem;
+  top: 50%;
+  margin-top: -0.05rem;
+  background: #fe335d;
+  border-radius: 100%;
+}
+#pin-question-1 .q-lists .item.active:before {
+  background: #fff;
+}
+#pin-question-1 .input-box {
+  position: absolute;
+  z-index: 2;
+  top: 7.5rem;
+  left: 0.3rem;
+}
+#pin-question-1 .input-box #self-evaluation {
+  width: 5rem;
+  height: 0.74rem;
+  padding: 0 0.3rem;
+  line-height: 0.74rem;
+  border: #fe335d 2px solid;
+  border-top: none;
+  font-size: 0.32rem;
+  color: #fff;
+  background: #000;
+}
+
 #pin-question-2 .question-wrap {
   position: absolute;
   left: 0%;

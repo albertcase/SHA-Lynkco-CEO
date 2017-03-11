@@ -1,3 +1,60 @@
+#pin-question-1{
+  .question-wrap{
+    >img{
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .q-lists{
+    position: absolute;
+    z-index: 2;
+    top: 3.56rem;
+    left: 0.5rem;
+    font-size: 0.32rem;
+    .item{
+      position: relative;
+      margin-bottom: 0.3rem;
+      text-indent: -999em;
+      @include size(5rem,0.45rem);
+      //background: rgba(255,0,0,0.6);
+      &:before{
+        content: '';
+        display: inline-block;
+        @include size(0.1rem,0.1rem);
+        position: absolute;
+        z-index: 2;
+        left: -0.2rem;
+        top: 50%;
+        margin-top: -0.05rem;
+        background: #fe335d;
+        border-radius: 100%;
+      }
+      &.active{
+        &:before{
+          background: #fff;
+        }
+      }
+    }
+  }
+  .input-box{
+    position: absolute;
+    z-index: 2;
+    top: 7.5rem;
+    left: 0.3rem;
+    //@include size(5.6rem,0.7rem);
+    #self-evaluation{
+      @include size(5rem,0.74rem);
+      padding: 0 0.3rem;
+      line-height: 0.74rem;
+      border: #fe335d 2px solid;
+      border-top: none;
+      font-size: 0.32rem;
+      color: #fff;
+      background: #000;
+    }
+  }
+}
+
 
 #pin-question-2{
   .question-wrap{
