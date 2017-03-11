@@ -45,7 +45,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(7);
+                Common.gotoPin(0);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
