@@ -94,3 +94,19 @@
     }
   }
 }
+
+#pin-question-3{
+  .btn-time{
+    position: absolute;
+    bottom: 1.1rem;
+    left: 50%;
+    @include size(5rem,1rem);
+    line-height: 1rem;
+    margin-left: -2.5rem;
+    font-size: 0.45rem;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    background: #fe335d;
+  }
+}

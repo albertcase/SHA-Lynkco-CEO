@@ -652,9 +652,11 @@ html,body{
 }
 
 .logo{
-  @include size(2.76rem,1.03rem);
-  padding-top: 0.9rem;
-  margin: 0 auto 0.4rem;
+  position: absolute;
+  top: 0.4rem;
+  z-index: 10;
+  left: 50%;
+  @include transform(translate(-50%));
 }
 
 .btn{

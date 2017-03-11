@@ -31,6 +31,7 @@
 
         var baseurl = ''+'/src/images/';
         var imagesArray = [
+            baseurl + 'logo.png',
             baseurl + 'bg.jpg',
             baseurl + 'p1-t1.png',
             baseurl + 'p2-1.jpg',
@@ -61,7 +62,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(2);
+                Common.gotoPin(4);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
