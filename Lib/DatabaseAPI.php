@@ -209,7 +209,7 @@ class DatabaseAPI {
 	}
 
 	public function loadListByUid($uid) {
-		$sql = "SELECT * FROM `answer` WHERE uid in (select fuid from band where uid = '".intval($uid)."')"; 
+		$sql = "SELECT * FROM `answer` WHERE uid in (select fuid from band where uid = '".intval($uid)."') or uid = '".$uid."' order by total desc"; 
 		$res = $this->db->query($sql);
 		$data = array();
 		while($rows = $res->fetch_array(MYSQLI_ASSOC))
