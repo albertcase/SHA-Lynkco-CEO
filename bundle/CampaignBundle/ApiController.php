@@ -130,21 +130,15 @@ class ApiController extends Controller {
         } 
     	$request = $this->request;
     	$fields = array(
-			'sex' => array('notnull', '120'),
-			'name' => array('notnull', '121'),
-			'mobile' => array('cellphone', '122'),
-			'email' => array('notnull', '123'),
-			'store' => array('notnull', '124')
+			'name' => array('notnull', '120'),
+			'info' => array('notnull', '121'),
 		);
 		$request->validation($fields);
 		$DatabaseAPI = new \Lib\DatabaseAPI();
 		$data = new \stdClass();
 		$data->uid = $user->uid;
-		$data->sex = $request->request->get('sex');
 		$data->name = $request->request->get('name');
-		$data->mobile = $request->request->get('mobile');
-		$data->email = $request->request->get('email');
-		$data->store = $request->request->get('store');
+		$data->info = $request->request->get('info');
 
 		if($DatabaseAPI->insertSubmit($data)) {
 			$data = array('status' => 1);

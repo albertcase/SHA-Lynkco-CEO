@@ -233,9 +233,9 @@ class DatabaseAPI {
 	}
 
 	public function insertSubmit($data){
-		$sql = "INSERT INTO `submit` SET `uid` = ?, `sex` = ?, `name` = ?, `mobile` = ?, `email` = ?, `store` = ?"; 
+		$sql = "INSERT INTO `submit` SET `uid` = ?, `name` = ?, `info` = ?"; 
 		$res = $this->connect()->prepare($sql); 
-		$res->bind_param("ssssss", $data->uid, $data->sex, $data->name, $data->mobile, $data->email, $data->store);
+		$res->bind_param("sss", $data->uid, $data->name, $data->info);
 		if($res->execute()) 
 			return $res->insert_id;
 		else 
