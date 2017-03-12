@@ -65,7 +65,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(7);
+                Common.gotoPin(0);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
@@ -198,11 +198,27 @@
         //btn-again
         $('.btn-again').on('click',function(){
             //render new picture
-            var renderPic = self.canvas.toDataURL({
-                format: 'png',
-                quality: 1
+
+            self.canvas.add();
+
+            fabric.Image.fromURL('/src/images/image-overlay.png',function(imgobj){
+                imgobj.scale(0.5);
+                imgobj.set({
+                    selectable:true,
+                    hasControls:false,
+                    hasBorders:false
+                });
+                //console.log(self.canvas);
+                self.canvas.add(imgobj);
+                var renderPic = self.canvas.toDataURL({
+                    format: 'png',
+                    quality: 1
+                });
+                //
+                $('.upload-wrap img').attr('src',renderPic);
+
             });
-            $('.upload-wrap img').attr('src',renderPic);
+
         });
 
 
