@@ -1113,6 +1113,44 @@ html, body {
   text-indent: -999em;
 }
 
+#pin-upload .upload-wrap {
+  width: 6.07rem;
+  height: 8.59rem;
+  border: #fff 0.1rem solid;
+}
+#pin-upload .btn-upload {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#pin-upload .canvas-container {
+  position: absolute !important;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 100%;
+  height: 100%;
+}
+#pin-upload .buttons {
+  position: absolute;
+  bottom: -1rem;
+}
+#pin-upload #capture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
 #pin-question-1 .question-wrap > img {
   position: relative;
   z-index: 1;
