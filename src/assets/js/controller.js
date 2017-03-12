@@ -185,13 +185,17 @@
         o.init();
 
 
+        //$('.btn-upload').on('touchstart', function(e){
+        //
+        //});
+
     //    upload img
         //input file change
         $('#capture').on('change', function(e){
+            $('#capture').addClass('hide');
             var canvaswidth = $('.upload-wrap').width();
-            console.log(canvaswidth);
-
             self.uploadPhoto(e.target,canvaswidth);
+            $('.btn-upload').addClass('hide');
 
         });
 
@@ -199,7 +203,6 @@
         $('.btn-again').on('click',function(){
             //render new picture
 
-            self.canvas.add();
 
             fabric.Image.fromURL('/src/images/image-overlay.png',function(imgobj){
                 imgobj.scale(0.5);
@@ -215,7 +218,12 @@
                     quality: 1
                 });
                 //
-                $('.upload-wrap img').attr('src',renderPic);
+                $('.upload-wrap>img').attr('src',renderPic);
+
+                console.log(self.questionScore);
+                console.log(self.selectedOption);
+                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+                console.log(totalScore);
 
             });
 

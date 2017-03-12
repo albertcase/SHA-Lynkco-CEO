@@ -9,15 +9,7 @@
     <meta name="full-screen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/src/dist/css/style.css" />
-    <script src="/src/assets/js/lib/zepto.min.js"></script>
-    <script src="/src/assets/js/lib/pre-loader.js"></script>
-    <script src="/src/assets/js/lib/lrz.all.bundle.js"></script>
-    <script src="/src/assets/js/lib/fabric2.js"></script>
-    <script src="/src/assets/js/orientation.js"></script>
-    <script src="/src/assets/js/rem.js"></script>
-    <script src="/src/assets/js/common.js"></script>
-    <script src="/src/assets/js/controller.js"></script>
-    <!--<script src="/src/assets/js/exchange.js"></script>-->
+    <script src="/src/dist/js/welcome_all.min.js"></script>
 </head>
 <body class="page-home">
 <div class="preload">
@@ -171,18 +163,27 @@
 
         <!-- 点击上传照片-->
         <div class="pin pin-8" id="pin-upload">
-            <div class="upload-wrap">
-                <div class="btn-upload">
-                    <span class="icon">+</span>
-                    点击上传照片
+            <div class="v-content">
+                <div class="upload-wrap">
+                    <img src="/src/images/upload-bg.jpg" alt="upload"/>
+                    <div class="btn-upload">
+                        <!--<span class="icon">+</span>-->
+                        <!--点击上传照片-->
+                        <img src="/src/images/btn-upload.png" alt="upload"/>
+                    </div>
+                    <canvas id="c"></canvas>
                 </div>
-                <canvas id="c"></canvas>
+                <div class="buttons">
+                    <span class="btn-again">换一张</span>
+                    <span class="btn-again">确认</span>
+                </div>
+                <!--<div class="tips">-->
+                    <!--最后，请上传一张趣照-->
+                    <!--以便让大家膜拜-->
+                <!--</div>-->
+                <input type="file" id="capture" accept="image/png,image/jpg,image/gif"/>
             </div>
-            <div class="tips">
-                最后，请上传一张趣照
-                以便让大家膜拜
-            </div>
-            <input type="file" id="capture" accept="image/png,image.jpg,image.gif"/>
+
         </div>
 
 
