@@ -27,3 +27,34 @@
     text-indent: -999em;
   }
 }
+
+//pin-upload
+#pin-upload{
+  .upload-wrap{
+    @include size(6.07rem,8.59rem);
+    border: #fff 0.1rem solid;
+  }
+  .btn-upload{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    @include transform(translate(-50%,-50%));
+  }
+  .canvas-container{
+    position: absolute !important;
+    top: 0.1rem;
+    left: 0.1rem;
+    @include size(100%,100%);
+  }
+  .buttons{
+    position: absolute;
+    bottom: -1rem;
+  }
+  #capture{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    @include transform(translate(-50%,-50%));
+    opacity: 0;
+  }
+}

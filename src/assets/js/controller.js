@@ -23,6 +23,9 @@
 
         //init the canvas
         this.canvas = new fabric.Canvas('c');
+        this.canvas.setWidth($(window).width()*607/750);
+        this.canvas.setHeight($(window).width()*859/750);
+        console.log($('.upload-wrap').height());
 
     };
     //init
@@ -62,7 +65,7 @@
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(6);
+                Common.gotoPin(7);
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
@@ -185,9 +188,24 @@
     //    upload img
         //input file change
         $('#capture').on('change', function(e){
-            //var canvaswidth = $('.block-photo').width();;
-            self.uploadPhoto(e.target,300);
+            var canvaswidth = $('.upload-wrap').width();
+            console.log(canvaswidth);
+
+            self.uploadPhoto(e.target,canvaswidth);
+
         });
+
+        //btn-again
+        $('.btn-again').on('click',function(){
+            //render new picture
+            var renderPic = self.canvas.toDataURL({
+                format: 'png',
+                quality: 1
+            });
+            $('.upload-wrap img').attr('src',renderPic);
+        });
+
+
 
     };
 
