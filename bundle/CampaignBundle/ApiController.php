@@ -59,24 +59,29 @@ class ApiController extends Controller {
 		}
     }
 
-    public function makeAction() {
+    public function answerAction() {
     	ini_set("display_errors",1);
     	global $user;
 
     	$request = $this->request;
     	$fields = array(
-			'background' => array('notnull', '120'),
-			'color' => array('notnull', '121'),
-			'content' => array('notnull', '122'),
+			'answer1' => array('notnull', '120'),
+			'answer2' => array('notnull', '121'),
+			'answer3' => array('notnull', '122'),
+			'answer4' => array('notnull', '123'),
+			'answer5' => array('notnull', '124'),
 		);
 		$request->validation($fields);
 		$DatabaseAPI = new \Lib\DatabaseAPI();
 		$data = new \stdClass();
 		$data->uid = $user->uid;
 		$data->nickname = $user->nickname;
-		$data->background = $request->request->get('background');
-		$data->color = $request->request->get('color');
-		$data->content = $request->request->get('content');
+		$data->answer1 = $request->request->get('answer1');
+		$data->answer2 = $request->request->get('answer2');
+		$data->answer3 = $request->request->get('answer3');
+		$data->answer4 = $request->request->get('answer4');
+		$data->answer5 = $request->request->get('answer5');
+		$data->total = $request->request->get('total');
 
 		if($rs = $DatabaseAPI->insertMake($data)) {
 			$data = array('status' => 1, 'msg' => $rs);

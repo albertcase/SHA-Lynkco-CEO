@@ -9,7 +9,7 @@ class PageController extends Controller {
 		$this->render('index');
 	}
 
-	public function matchAction() {	
+	public function resultAction() {	
 		global $user;
 
 		$request = $this->request;
