@@ -104,9 +104,6 @@
         });
 
 
-
-
-
     };
 
     //bind Events
@@ -330,7 +327,7 @@
                     if(data.status==1){
                         //override share link
                         weixinshare({
-                            title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
+                            title1: '看我CEO测试高达'+totalScore+'分，实力碾压你的双商！',
                             des: '用实力让情怀落地，用分数为自己说话',
                             link: window.location.origin+'/rank?id='+data.msg,
                             img: window.location.origin+'/src/images/share.jpg'
