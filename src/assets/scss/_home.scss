@@ -138,6 +138,16 @@
 
 //
 #pin-result-lists{
+  .btn-close{
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+    @include size(0.18rem,0.18rem);
+    background: url("../../images/btn-close.png") center center no-repeat;
+    background-size: 0.18rem;
+    text-indent: -999em;
+    padding: 0.2rem;
+  }
   .v-content{
     box-sizing: border-box;
     border: #fff 0.1rem solid;
@@ -146,7 +156,7 @@
     position: absolute;
     left: 0.4rem;
     top: 1rem;
-    @include size(5rem,2.4rem);
+    @include size(5.6rem,2.4rem);
     overflow: auto;
     font-size: 0.32rem;
     .num{
@@ -156,7 +166,7 @@
     }
     .name{
       display: inline-block;
-      width: 2rem;
+      width: 3rem;
       text-align: left;
     }
     .score{
