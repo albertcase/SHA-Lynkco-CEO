@@ -18,8 +18,8 @@ class PageController extends Controller {
 		$request->validation($fields);
 		$url = urldecode($request->query->get('url'));
 	  	$config = $this->jssdkConfig($url);
-	  	$json = json_encode(array('status' => '1', 'data' => $config));
-	  	return $this->Response("SignWeiXinJs({$json})");
+	  	$json = json_encode($config);
+	  	return $this->Response($json);
 	}
 
 	public function jssdkConfig($url = '') {
