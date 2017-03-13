@@ -19,6 +19,7 @@ class PageController extends Controller {
 	  	$this->hostValid($url);
 	  	$config = $this->jssdkConfig($url);
 	  	$json = json_encode(array('status' => '1', 'data' => $config));
+	  	echo exit;
 	  	return $this->Response("SignWeiXinJs({$json})");
 	}
 
