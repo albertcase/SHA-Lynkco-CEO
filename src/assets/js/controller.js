@@ -85,9 +85,9 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
-                Common.gotoPin(8);
-
+                self.doGenerateAni();
+                //Common.gotoPin(0);
+                
                 //bind events
                 self.bindEvent();
 
