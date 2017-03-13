@@ -95,6 +95,15 @@ class PageController extends Controller {
 
 	}
 
+	public function clearDataAction() {
+		$databaseAPI = new \Lib\DatabaseAPI();
+		$databaseAPI->clearMake();
+		$data = array('status' => 1, 'msg' => 'clear');
+			$this->dataPrint($data);
+		exit;
+
+	}
+
 	public function clearCookieAction() {
 		setcookie('_user', json_encode($user), time(), '/');
 		$this->statusPrint('success');

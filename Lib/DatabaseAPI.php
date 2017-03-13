@@ -245,7 +245,7 @@ class DatabaseAPI {
 	}
 
 	public function clearMake(){
-		$sql = "TRUNCATE table product"; 
+		$sql = "TRUNCATE table answer"; 
 		$res = $this->connect()->prepare($sql); 
 		if($res->execute()) {
 			$sql2 = "TRUNCATE table band"; 
