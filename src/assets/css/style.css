@@ -1307,6 +1307,10 @@ html, body {
   background-position: 0 -0.7rem;
   margin: 0.2rem auto;
 }
+.pin-shake .q-lists .item .btn-selected-overlay {
+  position: absolute;
+  z-index: 2;
+}
 .pin-shake .q-lists .item-a {
   top: 50%;
   left: 0.7rem;
@@ -1315,6 +1319,12 @@ html, body {
   -ms-transform: translate(-100%, -50%);
   -o-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
+}
+.pin-shake .q-lists .item-a .btn-selected-overlay {
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
 }
 .pin-shake .q-lists .item-b {
   top: 50%;
@@ -1325,6 +1335,12 @@ html, body {
   -o-transform: translate(100%, -50%);
   transform: translate(100%, -50%);
 }
+.pin-shake .q-lists .item-b .btn-selected-overlay {
+  right: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+}
 .pin-shake .q-lists .item-c {
   left: 50%;
   bottom: 0.7rem;
@@ -1333,6 +1349,12 @@ html, body {
   -ms-transform: translate(-50%, 100%);
   -o-transform: translate(-50%, 100%);
   transform: translate(-50%, 100%);
+}
+.pin-shake .q-lists .item-c .btn-selected-overlay {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
 }
 
 #pin-question-3 .btn-time {

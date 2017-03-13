@@ -84,18 +84,21 @@
                             <img src="/src/images/q2-a.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q2-b.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q2-c.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                 </ul>
             </div>
@@ -120,18 +123,21 @@
                             <img src="/src/images/q4-a.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q4-b.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q4-c.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                 </ul>
             </div>
@@ -148,18 +154,21 @@
                             <img src="/src/images/q5-a.png" alt="5"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q5-b.png" alt="4"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q5-c.png" alt="3"/>
                         </div>
                         <div class="btn-selected">就选他</div>
+                        <div class="btn-selected-overlay"></div>
                     </li>
                 </ul>
             </div>

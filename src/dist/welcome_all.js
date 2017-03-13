@@ -920,7 +920,7 @@ $(document).ready(function(){
         });
 
         //select question 2
-        $('#pin-question-2 .q-lists .btn-selected').on('click',function(){
+        $('#pin-question-2 .q-lists .btn-selected-overlay').on('click',function(){
             var curIndex = $(this).parent().index();
             self.selectedOption.q2 = curIndex;
             Common.gotoPin(4);
