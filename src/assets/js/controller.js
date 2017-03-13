@@ -89,8 +89,7 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(7);
-
+                //Common.gotoPin(8);
                 //bind events
                 self.bindEvent();
 
@@ -355,6 +354,11 @@
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(8);
+            Api.isLogin(function(data){
+                if(data.info){
+                    $('.form-information').html('');
+                }
+            });
         //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){

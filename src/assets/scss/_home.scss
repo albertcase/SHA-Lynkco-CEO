@@ -205,6 +205,20 @@
     display: inline-block;
     float: right;
   }
+  .tips-success{
+    display: none;
+  }
+  .hasinfo{
+    .tips-success{
+      display: block;
+      img{
+        margin: 1rem auto 0;
+      }
+    }
+    .form-information{
+      display: none;
+    }
+  }
 }
 
 //for share
