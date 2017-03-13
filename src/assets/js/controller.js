@@ -86,7 +86,7 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(2);
+                //Common.gotoPin(8);
 
                 //bind events
                 self.bindEvent();
@@ -265,8 +265,8 @@
                 });
                 //console.log(self.canvas);
                 self.canvas.add(imgobj);
-                console.log(self.questionScore);
-                console.log(self.selectedOption);
+                //console.log(self.questionScore);
+                //console.log(self.selectedOption);
                 var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
                 console.log(totalScore);
                 var text = new fabric.Text(totalScore.toString(), {
@@ -305,6 +305,15 @@
                     //console.log(data);
                     if(data.status==1){
                         Common.alertBox.add('提交成功');
+                        //override share link
+                        weixinshare({
+                            title1: 'title',
+                            des: 'des',
+                            link: window.location.origin+'/rank?id='+data.msg,
+                            img: window.location.origin+'/src/dist/images/share.jpg'
+                        },function(){
+
+                        });
                     }else{
                         Common.alertBox.add(data.msg);
                     }
@@ -321,6 +330,41 @@
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(8);
+        //    get ranklist
+            Api.rankList(function(data){
+                if(data.status==1){
+                    console.log(data);
+                    var listHtml = '';
+                    for(var z=0;z<data.list.length;z++){
+                        listHtml = listHtml+'<li class="item">'+
+                            '<span class="num">'+z+'/</span>'+
+                            '<span class="name">'+data.list[z].nickname+'</span>'+
+                            '<span class="score">'+data.list[z].total+'</span>'+
+                            '</li>';
+                    }
+                    $('.result-lists').html(listHtml);
+                }else{
+                    Common.alertBox.add(data.msg);
+                }
+            });
+        });
+
+    //    submit form
+        $('#form-contact .btn-submit').on('touchstart', function(){
+            if($('#input-name').val() && $('#input-mobile').val()){
+                Api.submitInfo({
+                    name:$('#input-name').val(),
+                    info:$('#input-mobile').val()
+                },function(data){
+                    if(data.status==1){
+                        Common.alertBox.add('提交成功');
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
+            }else{
+                Common.alertBox.add('请完善表单');
+            }
         });
 
 

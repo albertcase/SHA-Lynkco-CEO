@@ -18,7 +18,7 @@ var path = {
     template:['./src/*.html'],
     css:['./src/assets/css/*.css'],
     js:['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/lib/reqAnimate.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/wxshare.js','./src/assets/js/api.js','./src/assets/js/home.js'],
-    welcomejs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/reqAnimate.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/lib/lrz.all.bundle.js','./src/assets/js/lib/fabric2.js','./src/assets/js/orientation.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/controller.js'],
+    welcomejs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/reqAnimate.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/lib/lrz.all.bundle.js','./src/assets/js/lib/fabric2.js','./src/assets/js/orientation.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/wxshare.js','./src/assets/js/controller.js'],
     joinjs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/join.js'],
     exchangejs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/exchange.js'],
     images:['./src/assets/images/*'],
