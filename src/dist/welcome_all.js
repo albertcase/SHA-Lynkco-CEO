@@ -1132,7 +1132,7 @@ weixinshare({
                 Api.answer({
                     answer1:self.selectedOption.q1,
                     answer2:self.selectedOption.q2,
-                    answer3:self.selectedOption.q3,
+                    answer3:self.questionScore.q3,
                     answer4:self.selectedOption.q4,
                     answer5:self.selectedOption.q5,
                     total:totalScore,
@@ -1181,7 +1181,7 @@ weixinshare({
                     var listHtml = '';
                     for(var z=0;z<data.list.length;z++){
                         listHtml = listHtml+'<li class="item">'+
-                            '<span class="num">'+z+'/</span>'+
+                            '<span class="num">'+(z+1)+'/</span>'+
                             '<span class="name">'+data.list[z].nickname+'</span>'+
                             '<span class="score">'+data.list[z].total+'</span>'+
                             '</li>';
