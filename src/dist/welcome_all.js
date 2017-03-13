@@ -871,8 +871,8 @@ $(document).ready(function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-
-                //Common.gotoPin(7);
+                
+                //Common.gotoPin(8);
 
                 //bind events
                 self.bindEvent();
@@ -1047,7 +1047,7 @@ $(document).ready(function(){
                 console.log(self.selectedOption);
                 var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
                 console.log(totalScore);
-                var text = new fabric.Text('80', {
+                var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
                     fontFamily:'SofiaProBold',
                     fontSize: parseInt(177*$(window).width()/750),

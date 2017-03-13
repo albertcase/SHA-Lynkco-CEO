@@ -30,6 +30,7 @@
         border-radius: 100%;
       }
       &.active{
+        background: rgba(254, 51, 93, 0.2);
         &:before{
           background: #fff;
         }

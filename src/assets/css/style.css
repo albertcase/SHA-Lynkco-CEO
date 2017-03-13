@@ -1202,6 +1202,7 @@ html, body {
   background-position: 0.3rem -1.6rem;
 }
 #pin-upload .btn-ok, #pin-upload .btn-share {
+  position: relative;
   background-position: 0.3rem -2.4rem;
   float: right;
 }
@@ -1222,7 +1223,7 @@ html, body {
   left: 0.4rem;
   top: 1rem;
   width: 5rem;
-  height: 3rem;
+  height: 2.4rem;
   overflow: auto;
   font-size: 0.32rem;
 }
@@ -1243,7 +1244,7 @@ html, body {
 #pin-result-lists #form-contact {
   position: absolute;
   left: 0.4rem;
-  top: 5rem;
+  top: 4rem;
 }
 #pin-result-lists #form-contact .des {
   margin-bottom: 0.3rem;
@@ -1308,6 +1309,9 @@ html, body {
   margin-top: -0.05rem;
   background: #fe335d;
   border-radius: 100%;
+}
+#pin-question-1 .q-lists .item.active {
+  background: rgba(254, 51, 93, 0.2);
 }
 #pin-question-1 .q-lists .item.active:before {
   background: #fff;

@@ -115,6 +115,7 @@
     background-position: 0.3rem -1.6rem;
   }
   .btn-ok,.btn-share{
+    position: relative;
     background-position: 0.3rem -2.4rem;
     float: right;
   }
@@ -139,7 +140,7 @@
     position: absolute;
     left: 0.4rem;
     top: 1rem;
-    @include size(5rem,3rem);
+    @include size(5rem,2.4rem);
     overflow: auto;
     font-size: 0.32rem;
     .num{
@@ -160,7 +161,7 @@
   #form-contact{
     position: absolute;
     left: 0.4rem;
-    top: 5rem;
+    top: 4rem;
     .des{
       margin-bottom: 0.3rem;
     }
