@@ -85,8 +85,8 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
-                Common.gotoPin(2);
+                self.doGenerateAni();
+                //Common.gotoPin(2);
 
                 //bind events
                 self.bindEvent();
@@ -291,6 +291,24 @@
                 $('.upload-wrap>img').attr('src',renderPic);
                 $('.buttons').addClass('shownext');
                 $('.canvas-container').addClass('hide');
+
+                //Api
+                Api.answer({
+                    answer1:self.selectedOption.q1,
+                    answer2:self.selectedOption.q2,
+                    answer3:self.selectedOption.q3,
+                    answer4:self.selectedOption.q4,
+                    answer5:self.selectedOption.q5,
+                    total:totalScore,
+                    image:renderPic
+                },function(data){
+                    //console.log(data);
+                    if(data.status==1){
+                        Common.alertBox.add('提交成功');
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
 
             });
 

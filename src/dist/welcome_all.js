@@ -658,15 +658,17 @@ $(document).ready(function(){
 /*All the api collection*/
 Api = {
     //
-    //answer
-    answer:function(callback){
-        Common.msgBox('loading...');
+    //answer answer1-5
+    //status =1  msg = 分享id
+    answer:function(obj,callback){
+        Common.msgBox.add('loading...');
         $.ajax({
             url:'/api/answer',
             type:'POST',
+            data:obj,
             dataType:'json',
             success:function(data){
-                $('.ajaxpop').remove();
+                Common.msgBox.remove();
                 return callback(data);
                 //status=1 有库存
             }
@@ -681,16 +683,38 @@ Api = {
 
     },
 
-    //提交用户表单信息
-    submitUserForm:function(obj,callback){
-        Common.msgBox('loading...');
+    //rank list
+    rankList:function(callback){
+        Common.msgBox.add('loading...');
         $.ajax({
-            url:'/ajax/post',
+            url:'/api/list',
+            type:'POST',
+            dataType:'json',
+            success:function(data){
+                Common.msgBox.remove();
+                return callback(data);
+            }
+        });
+
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //});
+
+
+    },
+    //submit form
+    // name  info
+    submitInfo:function(obj,callback){
+        Common.msgBox.add('loading...');
+        $.ajax({
+            url:'/api/list',
             type:'POST',
             dataType:'json',
             data:obj,
             success:function(data){
-                $('.ajaxpop').remove();
+                Common.msgBox.remove();
                 return callback(data);
             }
         });
@@ -794,8 +818,9 @@ Api = {
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
-                Common.gotoPin(2);
+                self.doGenerateAni();
+                //Common.gotoPin(2);
+                
 
                 //bind events
                 self.bindEvent();
@@ -1000,6 +1025,24 @@ Api = {
                 $('.upload-wrap>img').attr('src',renderPic);
                 $('.buttons').addClass('shownext');
                 $('.canvas-container').addClass('hide');
+
+                //Api
+                Api.answer({
+                    answer1:self.selectedOption.q1,
+                    answer2:self.selectedOption.q2,
+                    answer3:self.selectedOption.q3,
+                    answer4:self.selectedOption.q4,
+                    answer5:self.selectedOption.q5,
+                    total:totalScore,
+                    image:renderPic
+                },function(data){
+                    //console.log(data);
+                    if(data.status==1){
+                        Common.alertBox.add('提交成功');
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
 
             });
 
