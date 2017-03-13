@@ -10,6 +10,7 @@ class PageController extends Controller {
 	}
 
 	public function jssdkConfigJsAction() {
+		ini_set("display_errors",1);
 		echo 1;
 		$request = $this->Request();
 		$fields = array(
