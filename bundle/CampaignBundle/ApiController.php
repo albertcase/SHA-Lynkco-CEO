@@ -60,7 +60,6 @@ class ApiController extends Controller {
     }
 
     public function answerAction() {
-    	ini_set("display_errors",1);
     	global $user;
 
     	$request = $this->request;
