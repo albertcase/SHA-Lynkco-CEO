@@ -15,6 +15,7 @@ $routers['/reservation'] = array('CampaignBundle\Page', 'reservation');
 $routers['/login'] = array('CampaignBundle\Page', 'login');
 $routers['/api/answer'] = array('CampaignBundle\Api', 'answer');
 $routers['/api/list'] = array('CampaignBundle\Api', 'list');
+$routers['/api/getlistbyid'] = array('CampaignBundle\Api', 'load');
 $routers['/api/submit'] = array('CampaignBundle\Api', 'submit');
 $routers['/api/band'] = array('CampaignBundle\Page', 'band');
 $routers['/api/islogin'] = array('CampaignBundle\Api', 'islogin');

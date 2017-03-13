@@ -127,6 +127,17 @@ class ApiController extends Controller {
 		
     }
 
+    public function getlistbyidAction() {
+
+    	global $user;
+
+		$DatabaseAPI = new \Lib\DatabaseAPI();
+		$rs = $DatabaseAPI->loadMakeById($id);
+		$data = array('status' => 1, 'msg' => $rs);
+		$this->dataPrint($data);
+		
+    }
+
     public function submitAction() {
 
     	global $user;
