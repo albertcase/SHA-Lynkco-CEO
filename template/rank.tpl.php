@@ -1,4 +1,3 @@
-<?php print $ismy;?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -43,7 +42,11 @@
                     <img src="/src/images/upload-bg.jpg" alt="upload"/>
                 </div>
                 <div class="buttons">
-                    <span class="btn-play">我也要测</span>
+                    <?php if($ismy) {
+                        echo '<span class="btn-play">我也要测</span>';
+                    }else {
+                        echo '<span class="btn-next btn-scorelists">排行榜</span><span class="btn-next btn-share">趣秀自己</span>';
+                    }?>
                 </div>
             </div>
         </div>
