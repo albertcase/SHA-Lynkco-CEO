@@ -251,10 +251,10 @@ class DatabaseAPI {
 		$res->execute();
 		$res->bind_result($name, $info);
 		if($res->fetch()) {
-			$info = new \stdClass();
-			$info->name = $name;
-			$info->info = $info;
-			return $info;
+			$data = new \stdClass();
+			$data->name = $name;
+			$data->info = $info;
+			return $data;
 		}
 		return NULL;
 	}
