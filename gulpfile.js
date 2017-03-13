@@ -19,6 +19,7 @@ var path = {
     css:['./src/assets/css/*.css'],
     js:['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/lib/reqAnimate.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/wxshare.js','./src/assets/js/api.js','./src/assets/js/home.js'],
     welcomejs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/reqAnimate.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/lib/lrz.all.bundle.js','./src/assets/js/lib/fabric2.js','./src/assets/js/orientation.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/wxshare.js','./src/assets/js/controller.js'],
+    rankjs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/lib/pre-loader.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/wxshare.js','./src/assets/js/rank.js'],
     joinjs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/join.js'],
     exchangejs: ['./src/assets/js/lib/zepto.min.js','./src/assets/js/rem.js','./src/assets/js/common.js','./src/assets/js/api.js','./src/assets/js/exchange.js'],
     images:['./src/assets/images/*'],
@@ -61,11 +62,11 @@ gulp.task('scripts_welcome',['clean'], function() {
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
 });
-gulp.task('scripts_join',['clean'], function() {
-    return gulp.src(path.joinjs)
-        .pipe(concat('join_all.js'))
+gulp.task('scripts_rank',['clean'], function() {
+    return gulp.src(path.rankjs)
+        .pipe(concat('rank_all.js'))
         .pipe(gulp.dest('./src/dist'))
-        .pipe(rename('join_all.min.js'))
+        .pipe(rename('rank_all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
 });
@@ -94,8 +95,7 @@ gulp.task("tinypng", function(){
 // Watch Files For Changes
 gulp.task('watch', ['clean'],function() {
     gulp.watch(path.welcomejs, ['scripts_welcome']);
-    gulp.watch(path.joinjs, ['scripts_join']);
-    gulp.watch(path.exchangejs, ['scripts_exchange']);
+    gulp.watch(path.rankjs, ['scripts_rank']);
     gulp.watch(path.css,['css']);
 });
 
