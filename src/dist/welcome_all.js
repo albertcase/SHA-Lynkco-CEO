@@ -953,7 +953,7 @@ $(document).ready(function(){
         });
 
         //select question 4
-        $('#pin-question-4 .q-lists .btn-selected').on('click',function(){
+        $('#pin-question-4 .q-lists .btn-selected-overlay').on('click',function(){
             var curIndex = $(this).parent().index();
             self.selectedOption.q4 = curIndex;
             Common.gotoPin(6);
