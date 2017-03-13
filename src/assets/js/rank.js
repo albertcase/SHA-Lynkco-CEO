@@ -138,6 +138,36 @@
             });
         });
 
+        //    btn-share
+        $('.btn-share').on('touchstart',function(){
+            $('.share-pop').addClass('show');
+        });
+        //share-pop
+        $('.share-pop').on('touchstart',function(){
+            $('.share-pop').removeClass('show');
+        });
+        //排行榜
+        $('.btn-scorelists').on('touchstart',function(){
+            Common.gotoPin(1);
+            //    get ranklist
+            Api.rankList(function(data){
+                if(data.status==1){
+                    console.log(data);
+                    var listHtml = '';
+                    for(var z=0;z<data.list.length;z++){
+                        listHtml = listHtml+'<li class="item">'+
+                            '<span class="num">'+z+'/</span>'+
+                            '<span class="name">'+data.list[z].nickname+'</span>'+
+                            '<span class="score">'+data.list[z].total+'</span>'+
+                            '</li>';
+                    }
+                    $('.result-lists').html(listHtml);
+                }else{
+                    Common.alertBox.add(data.msg);
+                }
+            });
+        });
+
         //    submit form
         $('#form-contact .btn-submit').on('touchstart', function(){
             if($('#input-name').val() && $('#input-mobile').val()){
@@ -154,6 +184,12 @@
             }else{
                 Common.alertBox.add('请完善表单');
             }
+        });
+
+
+        //    close the ranklist page
+        $('#pin-result-lists .btn-close').on('touchstart',function(){
+            Common.gotoPin(0);
         });
     };
 

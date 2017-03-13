@@ -205,6 +205,7 @@
         <!-- CEO 排行榜-->
         <div class="pin pin-9" id="pin-result-lists">
             <div class="v-content">
+                <div class="btn-close">close</div>
                 <div class="result-wrap">
                     <img src="/src/images/bg-3.jpg" alt="upload"/>
                     <ul class="result-lists">

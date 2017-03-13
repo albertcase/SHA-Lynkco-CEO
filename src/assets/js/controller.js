@@ -86,7 +86,7 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(8);
+                //Common.gotoPin(0);
 
                 //bind events
                 self.bindEvent();
@@ -304,7 +304,6 @@
                 },function(data){
                     //console.log(data);
                     if(data.status==1){
-                        Common.alertBox.add('提交成功');
                         //override share link
                         weixinshare({
                             title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
@@ -326,6 +325,10 @@
     //    btn-share
         $('.btn-share').on('touchstart',function(){
             $('.share-pop').addClass('show');
+        });
+        //share-pop
+        $('.share-pop').on('touchstart',function(){
+            $('.share-pop').removeClass('show');
         });
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
@@ -365,6 +368,12 @@
             }else{
                 Common.alertBox.add('请完善表单');
             }
+        });
+
+
+    //    close the ranklist page
+        $('#pin-result-lists .btn-close').on('touchstart',function(){
+            Common.gotoPin(7);
         });
 
 
