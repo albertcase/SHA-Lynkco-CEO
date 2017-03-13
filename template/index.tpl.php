@@ -9,6 +9,15 @@
     <meta name="full-screen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/src/dist/css/style.css" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d4893c0a3a8c267a269be255da13beac";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="/src/dist/js/welcome_all.min.js"></script>
 </head>
@@ -211,9 +220,12 @@
                     <ul class="result-lists">
 
                     </ul>
-                    <form id="form-contact">
+                    <form id="form-contact" class="">
                         <p class="des">
                             <img src="/src/images/p8-t1.png" alt="upload"/>
+                        </p>
+                        <p class="tips-success">
+                            <img src="/src/images/btn-submit-success.png" alt="upload"/>
                         </p>
                         <div class="form-information">
                             <div class="input-box input-box-name">
@@ -224,8 +236,8 @@
                                 <!--<label for="input-mobile">手机:</label>-->
                                 <input type="text" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
                             </div>
+                            <div class="btn-submit">提 交</div>
                         </div>
-                        <div class="btn-submit">提 交</div>
                     </form>
                 </div>
             </div>

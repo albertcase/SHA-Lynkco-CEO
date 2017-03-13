@@ -1290,6 +1290,18 @@ html, body {
   display: inline-block;
   float: right;
 }
+#pin-result-lists .tips-success {
+  display: none;
+}
+#pin-result-lists .hasinfo .tips-success {
+  display: block;
+}
+#pin-result-lists .hasinfo .tips-success img {
+  margin: 1rem auto 0;
+}
+#pin-result-lists .hasinfo .form-information {
+  display: none;
+}
 
 .share-pop img {
   position: absolute;
