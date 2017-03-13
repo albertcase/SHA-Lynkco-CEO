@@ -262,7 +262,6 @@
 
             var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
             //console.log(totalScore);
-            //totalScore = 100;
             var imgSrc = '/src/images/image-overlay1.png';
             if(totalScore>95 && totalScore<101){
                 // 颜值爆表
@@ -277,9 +276,10 @@
                 // 这一定不是你的 <85
                 imgSrc = '/src/images/image-overlay3.png';
             }
-            console.log(imgSrc);
+            //console.log(imgSrc);
             fabric.Image.fromURL(imgSrc,function(imgobj){
-                imgobj.scale(0.5);
+                var radio = $(window).width()/750;
+                imgobj.scale(radio);
                 imgobj.set({
                     selectable:false,
                     hasControls:false,
@@ -299,7 +299,8 @@
                     left: (totalScore==100)?parseInt(310*$(window).width()/750):parseInt(390*$(window).width()/750),
                     top: parseInt(480*$(window).width()/750),
                     stroke: '#fe335d',
-                    strokeWidth: 6
+                    strokeWidth: 3,
+                    fill: '#fe335d',
                 });
                 self.canvas.add(text);
 
