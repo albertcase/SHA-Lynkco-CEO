@@ -21,6 +21,20 @@
             q5:0
         };
 
+        var ArrLength=48;
+        this.loadingImg = [];
+        var newstring1 = '';
+        for(var i=1;i<ArrLength;i=i+2){
+            if(i<10){
+                newstring1='/src/images/'+'loading/loading_0000'+i+'.jpg';
+            }else if(i>9 && i<100){
+                newstring1='/src/images/'+'loading/loading_000'+i+'.jpg';
+            }else{
+                newstring1='/src/images/'+'loading/loading_00'+i+'.jpg';
+            }
+            this.loadingImg.push(newstring1);
+        };
+
         //init the canvas
         this.canvas = new fabric.Canvas('c');
         this.canvas.setWidth($(window).width()*607/750);
@@ -56,21 +70,28 @@
             baseurl + 'btn-upload.png',
             baseurl + 'image-overlay.png',
         ];
-        var i = 0;
+        imagesArray = imagesArray.concat(self.loadingImg);
+        var i = 0,j=0;
         new preLoader(imagesArray, {
             onProgress: function(){
-
+                i++;
+                //var progress = parseInt(i/imagesArray.length*100);
+                //console.log(progress);
+                //$('.preload .v-content').html(''+progress+'%');
+                //console.log(i+'i');
             },
             onComplete: function(){
+                $('.preload').remove();
+                $('.wrapper').addClass('fadein');
+                //self.doGenerateAni();
+                Common.gotoPin(0);
                 //bind events
                 self.bindEvent();
 
-                Common.gotoPin(0);
-
                 //set all img element width
-                for(var i=0;i<document.getElementsByTagName('img').length;i++){
-                    document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';
-                    document.getElementsByTagName('img')[i].style.height = document.getElementsByTagName('img')[i].naturalHeight / 100 + 'rem';
+                for(var k=0;k<document.getElementsByTagName('img').length;i++){
+                    document.getElementsByTagName('img')[k].style.width = document.getElementsByTagName('img')[k].naturalWidth / 100 + 'rem';
+                    document.getElementsByTagName('img')[k].style.height = document.getElementsByTagName('img')[k].naturalHeight / 100 + 'rem';
                 };
             }
         });
@@ -249,6 +270,50 @@
                 clearInterval(set);
             }
         }, 100);
+    };
+
+    controller.prototype.doGenerateAni = function () {
+        var self = this;
+        console.log(self.loadingImg);
+        var i= 0,j=0;
+        //background-size
+        var doGenerateAni;
+        var increase = true,showWord = false;
+        var imgSrc='';
+        var doAni = new reqAnimate($('.bg img'),{
+            fps: 6,
+            totalFrames: 24,
+            time: 2,
+            processAnimation: function(){
+                //console.log(self.loadingImg[j]);
+                //$('.preload').css('background-image','url("'+self.loadingImg[j]+'")');
+                $('.bg img').attr('src',self.loadingImg[j]);
+                if(increase){
+                    j++;
+                    if(j>self.loadingImg.length-2){
+                        increase=false;
+                    }
+                }else{
+                    j--;
+                    if(j<3){
+                        increase=true;
+                    }
+                }
+                //console.log(j);
+
+            },
+            doneAnimation: function(){
+
+                //show box and letter
+                //callback();
+                $('.bg').remove();
+                Common.gotoPin(0);
+                console.log('done');
+            }
+        });
+        doAni.start();
+
+
     };
 
     controller.prototype.uploadPhoto = function(ele,canvaswidth){

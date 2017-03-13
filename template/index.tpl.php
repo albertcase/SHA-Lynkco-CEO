@@ -22,10 +22,14 @@
     </div>
 </div>
 <!--main content-->
-<div class="wrapper">
+<div class="wrapper animate">
     <div class="bg">
         <!--我是背景-->
+        <img src="/src/images/loading/loading_00001.jpg" alt="lynkco"/>
     </div>
+    <!--<div class="show-animate">-->
+
+    <!--</div>-->
     <div class="logo">
         <img src="/src/images/logo.png" alt="lynkco"/>
     </div>
@@ -182,6 +186,38 @@
                     <!--以便让大家膜拜-->
                 <!--</div>-->
                 <input type="file" id="capture" accept="image/png,image/jpg,image/gif"/>
+            </div>
+
+        </div>
+        <!-- CEO 排行榜-->
+        <div class="pin pin-9" id="pin-result-lists">
+            <div class="v-content">
+                <div class="result-wrap">
+                    <img src="/src/images/bg-3.jpg" alt="upload"/>
+                    <ul class="result-lists">
+                        <li class="item">
+                            <span class="num">01</span>
+                            <span class="name">tests</span>
+                            <span class="score">100</span>
+                        </li>
+                    </ul>
+                    <form id="form-contact">
+                        <p class="des">
+                            <img src="/src/images/p8-t1.png" alt="upload"/>
+                        </p>
+                        <div class="form-information">
+                            <div class="input-box input-box-name">
+                                <!--<label for="input-name">姓名:</label>-->
+                                <input type="text" id="input-name" placeholder="留下你的名字"/>
+                            </div>
+                            <div class="input-box input-box-mobile">
+                                <!--<label for="input-mobile">手机:</label>-->
+                                <input type="tel" maxlength="11" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
+                            </div>
+                        </div>
+                        <div class="btn btn-submit">提 交</div>
+                    </form>
+                </div>
             </div>
 
         </div>

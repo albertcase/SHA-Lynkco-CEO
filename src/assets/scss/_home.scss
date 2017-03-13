@@ -6,7 +6,34 @@
   @include size(100%,100%);
   z-index: 1;
   background: url('../../images/bg.jpg') center center no-repeat;
-  background-size: conver;
+  background-size: cover;
+}
+
+//for preload
+.preload{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  @include size(100%,100%);
+  background-image:url('../../images/bg.jpg');
+  background-position:center center ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    @include size(100%,100%);
+  }
+}
+
+.wrapper{
+  opacity: 0;
+  &.fadein{
+    opacity: 1;
+  }
 }
 
 //for landing page
