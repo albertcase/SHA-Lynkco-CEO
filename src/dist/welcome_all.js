@@ -731,7 +731,7 @@ Api = {
     submitInfo:function(obj,callback){
         Common.msgBox.add('loading...');
         $.ajax({
-            url:'/api/list',
+            url:'/api/submit',
             type:'POST',
             dataType:'json',
             data:obj,
@@ -903,9 +903,10 @@ weixinshare({
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                self.doGenerateAni();
+                //self.doGenerateAni();
 
-                //Common.gotoPin(7);
+                Common.gotoPin(8);
+
                 //bind events
                 self.bindEvent();
 
@@ -1203,7 +1204,9 @@ weixinshare({
                     info:$('#input-mobile').val()
                 },function(data){
                     if(data.status==1){
-                        Common.alertBox.add('提交成功');
+                        //Common.alertBox.add('提交成功');
+                        $('#form-contact').addClass('hasinfo');
+
                     }else{
                         Common.alertBox.add(data.msg);
                     }

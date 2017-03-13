@@ -88,9 +88,10 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                self.doGenerateAni();
+                //self.doGenerateAni();
 
-                //Common.gotoPin(7);
+                Common.gotoPin(8);
+
                 //bind events
                 self.bindEvent();
 
@@ -388,7 +389,9 @@
                     info:$('#input-mobile').val()
                 },function(data){
                     if(data.status==1){
-                        Common.alertBox.add('提交成功');
+                        //Common.alertBox.add('提交成功');
+                        $('#form-contact').addClass('hasinfo');
+
                     }else{
                         Common.alertBox.add(data.msg);
                     }
