@@ -51,7 +51,7 @@
                     <img src="/src/images/upload-bg.jpg" alt="upload"/>
                 </div>
                 <div class="buttons">
-                    <?php if($ismy) {
+                    <?php if($ismy != 1) {
                         echo '<span class="btn-play">我也要测</span>';
                     }else {
                         echo '<span class="btn-scorelists">排行榜</span><span class="btn-share">趣秀自己</span>';
