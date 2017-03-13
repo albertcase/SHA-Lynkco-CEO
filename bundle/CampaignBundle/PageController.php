@@ -9,6 +9,10 @@ class PageController extends Controller {
 		$this->render('index');
 	}
 
+	public function randAction() {	
+		$this->render('rank');
+	}
+
 	public function jssdkConfigJsAction() {
 		ini_set("display_errors",1);
 		$request = $this->Request();

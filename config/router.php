@@ -20,3 +20,4 @@ $routers['/api/band'] = array('CampaignBundle\Page', 'band');
 $routers['/api/islogin'] = array('CampaignBundle\Api', 'islogin');
 $routers['/api/clearmake'] = array('CampaignBundle\Page', 'clearmake');
 $routers['/jssdk'] = array('CampaignBundle\Page', 'jssdkConfigJs');
+$routers['/rank'] = array('CampaignBundle\Page', 'rank');
