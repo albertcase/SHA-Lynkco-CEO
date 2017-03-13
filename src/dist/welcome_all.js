@@ -864,7 +864,6 @@ $(document).ready(function(){
                 //console.log(progress);
                 //$('.preload .v-content').html(''+progress+'%');
                 //console.log(i+'i');
-                
             },
             onComplete: function(){
                 $('.preload').remove();
@@ -875,7 +874,7 @@ $(document).ready(function(){
                 self.bindEvent();
 
                 //set all img element width
-                for(var k=0;k<document.getElementsByTagName('img').length;i++){
+                for(var k=0;k<document.getElementsByTagName('img').length;k++){
                     document.getElementsByTagName('img')[k].style.width = document.getElementsByTagName('img')[k].naturalWidth / 100 + 'rem';
                     document.getElementsByTagName('img')[k].style.height = document.getElementsByTagName('img')[k].naturalHeight / 100 + 'rem';
                 };
@@ -1093,6 +1092,7 @@ $(document).ready(function(){
                 //show box and letter
                 //callback();
                 $('.bg').remove();
+                $('.container').addClass('fadein');
                 Common.gotoPin(0);
                 console.log('done');
             }
