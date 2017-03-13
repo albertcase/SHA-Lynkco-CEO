@@ -580,8 +580,6 @@ var fabric=fabric||{version:"1.5.0"};typeof exports!="undefined"&&(exports.fabri
 			}
 
 			var element = settings.element || document;
-			console.log(element);
-
 			element.addEventListener("touchstart", handleTouchStart);
 			element.addEventListener("touchmove", handleTouchMove);
 			element.addEventListener("touchend", handleTouchEnd);
@@ -680,6 +678,7 @@ $(document).ready(function(){
                 self.bindEvent();
 
                 Common.gotoPin(0);
+
                 //set all img element width
                 for(var i=0;i<document.getElementsByTagName('img').length;i++){
                     document.getElementsByTagName('img')[i].style.width = document.getElementsByTagName('img')[i].naturalWidth / 100 + 'rem';

@@ -59,3 +59,38 @@
     opacity: 0;
   }
 }
+
+
+//
+#pin-result-lists{
+  .v-content{
+    box-sizing: border-box;
+    border: #fff 0.1rem solid;
+  }
+  .result-lists{
+    position: absolute;
+    left: 0.4rem;
+    top: 1rem;
+    @include size(4.5rem,3rem);
+  }
+  #form-contact{
+    position: absolute;
+    left: 0.4rem;
+    top: 5rem;
+    .des{
+      margin-bottom: 0.3rem;
+    }
+    input[type="text"],input[type="tel"]{
+      border: #fe335d 2px solid;
+      @include size(5.16rem,0.7rem);
+      line-height: 0.7rem;
+      background: transparent;
+      font-size: 0.28rem;
+      padding: 0 0.2rem;
+      box-sizing: border-box;
+    }
+    .input-box{
+      margin-bottom: 0.2rem;
+    }
+  }
+}

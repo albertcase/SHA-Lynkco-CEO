@@ -256,8 +256,6 @@ var Zepto=function(){function L(t){return null==t?String(t):j[S.call(t)]||"objec
 			}
 
 			var element = settings.element || document;
-			console.log(element);
-
 			element.addEventListener("touchstart", handleTouchStart);
 			element.addEventListener("touchmove", handleTouchMove);
 			element.addEventListener("touchend", handleTouchEnd);

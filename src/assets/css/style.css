@@ -1148,6 +1148,39 @@ html, body {
   opacity: 0;
 }
 
+#pin-result-lists .v-content {
+  box-sizing: border-box;
+  border: #fff 0.1rem solid;
+}
+#pin-result-lists .result-lists {
+  position: absolute;
+  left: 0.4rem;
+  top: 1rem;
+  width: 4.5rem;
+  height: 3rem;
+}
+#pin-result-lists #form-contact {
+  position: absolute;
+  left: 0.4rem;
+  top: 5rem;
+}
+#pin-result-lists #form-contact .des {
+  margin-bottom: 0.3rem;
+}
+#pin-result-lists #form-contact input[type="text"], #pin-result-lists #form-contact input[type="tel"] {
+  border: #fe335d 2px solid;
+  width: 5.16rem;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  background: transparent;
+  font-size: 0.28rem;
+  padding: 0 0.2rem;
+  box-sizing: border-box;
+}
+#pin-result-lists #form-contact .input-box {
+  margin-bottom: 0.2rem;
+}
+
 #pin-question-1 .question-wrap > img {
   position: relative;
   z-index: 1;
