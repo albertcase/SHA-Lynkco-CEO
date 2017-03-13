@@ -193,17 +193,18 @@ class DatabaseAPI {
 	}
 
 	public function loadMakeByUid($uid){
-		$sql = "SELECT `id`, `uid`, `nickname`, `total` FROM `answer` WHERE `uid` = ?"; 
+		$sql = "SELECT `id`, `uid`, `nickname`, `total`, `image` FROM `answer` WHERE `uid` = ?"; 
 		$res = $this->connect()->prepare($sql);
 		$res->bind_param("s", $uid);
 		$res->execute();
-		$res->bind_result($id, $uid, $nickname, $total);
+		$res->bind_result($id, $uid, $nickname, $total, $image);
 		if($res->fetch()) {
 			$info = new \stdClass();
 			$info->id = $id;
 			$info->uid = $uid;
 			$info->nickname = $nickname;
 			$info->total = $total;
+			$info->image = $image;
 			return $info;
 		}
 		return NULL;
