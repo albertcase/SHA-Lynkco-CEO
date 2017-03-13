@@ -409,7 +409,29 @@ Api = {
 
 
     },
+    // id
+    getlistbyid:function(obj,callback){
+        Common.msgBox.add('loading...');
+        $.ajax({
+            url:'/api/getlistbyid',
+            type:'POST',
+            dataType:'json',
+            data:obj,
+            success:function(data){
+                Common.msgBox.remove();
+                return callback(data);
+            }
+        });
 
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //});
+
+
+    },
+///api/getlistbyid
 
 
 };
@@ -560,7 +582,9 @@ $(document).ready(function(){
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                Api.isLogin(function(data){
+
+                Api.getlistbyid({id:Common.getParameterByName('id')},function(data){
+                    console.log(data);
                     if(data.status==1){
                         console.log(data);
                         $('.upload-wrap img').attr('src',data.msg.image);

@@ -80,7 +80,9 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                Api.isLogin(function(data){
+
+                Api.getlistbyid({id:Common.getParameterByName('id')},function(data){
+                    console.log(data);
                     if(data.status==1){
                         console.log(data);
                         $('.upload-wrap img').attr('src',data.msg.image);

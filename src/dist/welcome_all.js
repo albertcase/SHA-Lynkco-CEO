@@ -749,7 +749,29 @@ Api = {
 
 
     },
+    // id
+    getlistbyid:function(obj,callback){
+        Common.msgBox.add('loading...');
+        $.ajax({
+            url:'/api/getlistbyid',
+            type:'POST',
+            dataType:'json',
+            data:obj,
+            success:function(data){
+                Common.msgBox.remove();
+                return callback(data);
+            }
+        });
 
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //});
+
+
+    },
+///api/getlistbyid
 
 
 };
