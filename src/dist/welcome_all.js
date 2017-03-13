@@ -893,10 +893,12 @@ $(document).ready(function(){
 
         //from landing page to next page
         $('#pin-landing .btn-gonext').on('touchstart',function(){
+            $('.logo').addClass('hide');
             Common.gotoPin(1);
 
             var goQuePage = setTimeout(function(){
                 Common.gotoPin(2);
+                $('.logo').removeClass('hide');
             },2000);
         });
 
@@ -979,7 +981,7 @@ $(document).ready(function(){
                     $('.pin-question.current .question-wrap').css('left','0%');
                 }
 
-                if(obj.b>10){
+                if(obj.b>60){
                     $('.pin-question.current .question-wrap').css('bottom',bottomHeight);
                 }else{
                     $('.pin-question.current .question-wrap').css('bottom','0');
