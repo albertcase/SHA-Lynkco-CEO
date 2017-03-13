@@ -5,11 +5,11 @@
     var controller = function(){
         //each answer has relative score
         this.questionScore = {
-            q1:10,
-            q2:[10,10,20],
+            q1:16,
+            q2:[20,20,20],
             q3:12, //用秒来计时，时间不一样，对应的分值也不同,默认分值是12
-            q4:[10,10,20],
-            q5:[10,10,20]
+            q4:[16,16,20],
+            q5:[16,20,16]
         };
         //default deleted option
         this.selectedOption = {
@@ -67,7 +67,10 @@
             baseurl + 'q5-c.png',
             baseurl + 'q5-content.png',
             baseurl + 'btn-upload.png',
-            baseurl + 'image-overlay.png',
+            baseurl + 'image-overlay1.png',
+            baseurl + 'image-overlay2.png',
+            baseurl + 'image-overlay3.png',
+            baseurl + 'image-overlay4.png',
             baseurl + 'bg-3.jpg',
             baseurl + 'final-share.png',
             baseurl + 'tips-upload.png',
@@ -86,7 +89,7 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(0);
+                //Common.gotoPin(7);
 
                 //bind events
                 self.bindEvent();
@@ -133,7 +136,7 @@
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
                 self.selectedOption.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?$('#pin-question-1 .q-lists .active').index():$('#self-evaluation').val().toString();
-                self.questionScore.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?10:20;
+                self.questionScore.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?16:20;
             }else{
                 Common.alertBox.add('请选择一个标签或输入自己的答案');
             }
@@ -256,7 +259,26 @@
                 Common.alertBox.add('请上传图片');
                 return;
             }
-            fabric.Image.fromURL('/src/images/image-overlay.png',function(imgobj){
+
+            var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+            //console.log(totalScore);
+            //totalScore = 100;
+            var imgSrc = '/src/images/image-overlay1.png';
+            if(totalScore>95 && totalScore<101){
+                // 颜值爆表
+                imgSrc = '/src/images/image-overlay1.png';
+            }else if(totalScore>90 && totalScore<96){
+                //  差一步
+                imgSrc = '/src/images/image-overlay2.png';
+            }else if(totalScore>85 && totalScore<91){
+                // 就知道你是潜力股
+                imgSrc = '/src/images/image-overlay4.png';
+            }else{
+                // 这一定不是你的 <85
+                imgSrc = '/src/images/image-overlay3.png';
+            }
+            console.log(imgSrc);
+            fabric.Image.fromURL(imgSrc,function(imgobj){
                 imgobj.scale(0.5);
                 imgobj.set({
                     selectable:false,
@@ -267,21 +289,21 @@
                 self.canvas.add(imgobj);
                 //console.log(self.questionScore);
                 //console.log(self.selectedOption);
-                var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
-                console.log(totalScore);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
                     fontFamily:'SofiaProBold',
-                    fontSize: parseInt(177*$(window).width()/750),
+                    fontSize: parseInt(160*$(window).width()/750),
                     //fontWeight: 'bold',
                     //fontColor:'#fe335d',
                     color:'#fe335d',
-                    left: parseInt(380*$(window).width()/750),
+                    left: (totalScore==100)?parseInt(310*$(window).width()/750):parseInt(390*$(window).width()/750),
                     top: parseInt(480*$(window).width()/750),
                     stroke: '#fe335d',
-                    strokeWidth: 6
+                    strokeWidth: 8
                 });
                 self.canvas.add(text);
+
+
 
                 var renderPic = self.canvas.toDataURL({
                     format: 'png',
