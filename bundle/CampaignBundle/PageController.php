@@ -6,6 +6,11 @@ use Core\Controller;
 class PageController extends Controller {
 
 	public function indexAction() {	
+		global $user;
+		$product = $databaseAPI->loadMakeByUid($id);
+		if ($product) {
+			$this->redirect("/rank?id=".$product->id);
+		}
 		$this->render('index');
 	}
 
