@@ -598,7 +598,7 @@ $(document).ready(function(){
                 weixinshare({
                     title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
                     des: '用实力让情怀落地，用分数为自己说话',
-                    link: window.location.origin,
+                    link: window.location.href,
                     img: window.location.origin+'/src/images/share.jpg'
                 },function(){
 
