@@ -465,14 +465,16 @@ Api = {
     this.weixinshare = weixinshare;
 }).call(this);
 
-weixinshare({
-    title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
-    des: '用实力让情怀落地，用分数为自己说话',
-    link: window.location.origin,
-    img: window.location.origin+'/src/images/share.jpg'
-},function(){
+$(document).ready(function(){
+    weixinshare({
+        title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
+        des: '用实力让情怀落地，用分数为自己说话',
+        link: window.location.origin,
+        img: window.location.origin+'/src/images/share.jpg'
+    },function(){
 
-});
+    });
+})
 /*For join page
  * Inclue two function, one is load new qr for each person, another is show rule popup
  * */
