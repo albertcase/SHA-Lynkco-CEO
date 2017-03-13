@@ -186,14 +186,15 @@
                     </div>
                     <canvas id="c"></canvas>
                 </div>
-                <div class="buttons">
-                    <span class="btn-again">换一张</span>
-                    <span class="btn-again">确认</span>
+                <div class="buttons hide">
+                    <span class="btn-prev btn-again">换一张</span>
+                    <span class="btn-prev btn-ok">确认</span>
+                    <span class="btn-next btn-scorelists">排行榜</span>
+                    <span class="btn-next btn-share">趣秀自己</span>
                 </div>
-                <!--<div class="tips">-->
-                    <!--最后，请上传一张趣照-->
-                    <!--以便让大家膜拜-->
-                <!--</div>-->
+                <div class="tips">
+                    <img src="/src/images/tips-upload.png" alt="upload"/>
+                </div>
                 <input type="file" id="capture" accept="image/png,image/jpg,image/gif"/>
             </div>
 
@@ -228,10 +229,10 @@
                     </form>
                 </div>
             </div>
-
         </div>
-
-
+    </div>
+    <div class="popup share-pop">
+        <img src="/src/images/final-share.png" alt="upload"/>
     </div>
 </div>
 </body>

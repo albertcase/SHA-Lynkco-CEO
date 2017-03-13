@@ -39,7 +39,6 @@
         this.canvas = new fabric.Canvas('c');
         this.canvas.setWidth($(window).width()*607/750);
         this.canvas.setHeight($(window).width()*859/750);
-        console.log($('.upload-wrap').height());
 
     };
     //init
@@ -69,6 +68,9 @@
             baseurl + 'q5-content.png',
             baseurl + 'btn-upload.png',
             baseurl + 'image-overlay.png',
+            baseurl + 'bg-3.jpg',
+            baseurl + 'final-share.png',
+            baseurl + 'tips-upload.png',
         ];
         imagesArray = imagesArray.concat(self.loadingImg);
         var i = 0,j=0;
@@ -83,8 +85,8 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
-                Common.gotoPin(2);
+                self.doGenerateAni();
+                //Common.gotoPin(0);
 
                 //bind events
                 self.bindEvent();
@@ -216,45 +218,74 @@
         //});
 
     //    upload img
+        var enableGenerate = false;
         //input file change
         $('#capture').on('change', function(e){
             $('#capture').addClass('hide');
+            $('.tips').addClass('hide');
+            $('.buttons').removeClass('hide');
             var canvaswidth = $('.upload-wrap').width();
             self.uploadPhoto(e.target,canvaswidth);
             $('.btn-upload').addClass('hide');
+            enableGenerate = true;
 
         });
 
         //btn-again
-        $('.btn-again').on('click',function(){
+        $('#pin-upload .btn-ok').on('click',function(){
             //render new picture
-
-
+            if(!enableGenerate){
+                Common.alertBox.add('请上传图片');
+                return;
+            }
             fabric.Image.fromURL('/src/images/image-overlay.png',function(imgobj){
                 imgobj.scale(0.5);
                 imgobj.set({
-                    selectable:true,
+                    selectable:false,
                     hasControls:false,
                     hasBorders:false
                 });
                 //console.log(self.canvas);
                 self.canvas.add(imgobj);
+                console.log(self.questionScore);
+                console.log(self.selectedOption);
+                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+                console.log(totalScore);
+                var text = new fabric.Text('80', {
+                    //font:'#fe335d',
+                    fontFamily:'SofiaProBold',
+                    fontSize: parseInt(177*$(window).width()/750),
+                    //fontWeight: 'bold',
+                    //fontColor:'#fe335d',
+                    color:'#fe335d',
+                    left: parseInt(380*$(window).width()/750),
+                    top: parseInt(480*$(window).width()/750),
+                    stroke: '#fe335d',
+                    strokeWidth: 6
+                });
+                self.canvas.add(text);
+
                 var renderPic = self.canvas.toDataURL({
                     format: 'png',
                     quality: 1
                 });
                 //
                 $('.upload-wrap>img').attr('src',renderPic);
-
-                console.log(self.questionScore);
-                console.log(self.selectedOption);
-                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
-                console.log(totalScore);
+                $('.buttons').addClass('shownext');
+                $('.canvas-container').addClass('hide');
 
             });
 
         });
 
+    //    btn-share
+        $('.btn-share').on('touchstart',function(){
+            $('.share-pop').addClass('show');
+        });
+        //排行榜
+        $('.btn-scorelists').on('touchstart',function(){
+            Common.gotoPin(8);
+        });
 
 
     };
@@ -278,7 +309,6 @@
 
     controller.prototype.doGenerateAni = function () {
         var self = this;
-        console.log(self.loadingImg);
         var i= 0,j=0;
         //background-size
         var doGenerateAni;

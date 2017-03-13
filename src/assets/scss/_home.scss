@@ -58,6 +58,12 @@
 
 //pin-upload
 #pin-upload{
+  .tips{
+    text-align: center;
+    img{
+      margin: 0.6rem auto 0;
+    }
+  }
   .upload-wrap{
     @include size(6.07rem,8.59rem);
     border: #fff 0.1rem solid;
@@ -74,10 +80,6 @@
     left: 0.1rem;
     @include size(100%,100%);
   }
-  .buttons{
-    position: absolute;
-    bottom: -1rem;
-  }
   #capture{
     position: absolute;
     left: 0;
@@ -86,6 +88,44 @@
     height: 100%;
     opacity: 0;
   }
+  .buttons{
+    position: absolute;
+    bottom: -1rem;
+    width: 100%;
+    .btn-next{
+      display: none;
+    }
+    &.shownext{
+      .btn-prev{
+        display: none;
+      }
+      .btn-next{
+        display: inline-block;
+      }
+    }
+  }
+  .btn-again,.btn-ok,.btn-scorelists,.btn-share{
+    width: 2rem;
+    height: 0.8rem;
+    background: url("../../images/buttons.png") no-repeat;
+    -webkit-background-size: 2.55rem;
+    background-size: 2.55rem;
+    text-indent: -999em;
+    display: inline-block;
+    background-position: 0.3rem -1.6rem;
+  }
+  .btn-ok,.btn-share{
+    background-position: 0.3rem -2.4rem;
+    float: right;
+  }
+  .btn-scorelists{
+    background-position: 0.3rem -5rem;
+  }
+  .btn-share{
+    background-position: 0.3rem -5.8rem;
+    width: 2.6rem;
+  }
+
 }
 
 
@@ -120,5 +160,14 @@
     .input-box{
       margin-bottom: 0.2rem;
     }
+  }
+}
+
+//for share
+.share-pop{
+  img{
+    position: absolute;
+    right: 0.45rem;
+    top: 0.45rem;
   }
 }
