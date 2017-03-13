@@ -89,7 +89,8 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(8);
+
+                //Common.gotoPin(7);
                 //bind events
                 self.bindEvent();
 
@@ -290,7 +291,7 @@
                 //console.log(self.selectedOption);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
-                    fontFamily:'SofiaProBold',
+                    fontFamily:'Heiti',
                     fontSize: parseInt(160*$(window).width()/750),
                     //fontWeight: 'bold',
                     //fontColor:'#fe335d',
@@ -298,7 +299,7 @@
                     left: (totalScore==100)?parseInt(310*$(window).width()/750):parseInt(390*$(window).width()/750),
                     top: parseInt(480*$(window).width()/750),
                     stroke: '#fe335d',
-                    strokeWidth: 8
+                    strokeWidth: 6
                 });
                 self.canvas.add(text);
 
