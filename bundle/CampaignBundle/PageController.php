@@ -9,7 +9,7 @@ class PageController extends Controller {
 		$this->render('index');
 	}
 
-	public function randAction() {	
+	public function rankAction() {	
 		$this->render('rank');
 	}
 
