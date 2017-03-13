@@ -718,6 +718,7 @@ $(document).ready(function(){
         $('#pin-result-lists .btn-close').on('touchstart',function(){
             Common.gotoPin(0);
         });
+
     };
 
         $(document).ready(function(){

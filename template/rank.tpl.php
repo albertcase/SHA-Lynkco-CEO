@@ -52,7 +52,7 @@
                 </div>
                 <div class="buttons">
                     <?php if($ismy != 1) {
-                        echo '<span class="btn-play">我也要测</span>';
+                        echo '<span ><a href="/" class="btn-play">我也要测</a></span>';
                     }else {
                         echo '<span class="btn-scorelists">排行榜</span><span class="btn-share">趣秀自己</span>';
                     }?>
