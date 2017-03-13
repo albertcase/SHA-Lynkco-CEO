@@ -872,6 +872,7 @@ $(document).ready(function(){
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
                 //Common.gotoPin(0);
+                
 
                 //bind events
                 self.bindEvent();

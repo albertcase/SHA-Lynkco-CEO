@@ -1221,8 +1221,24 @@ html, body {
   position: absolute;
   left: 0.4rem;
   top: 1rem;
-  width: 4.5rem;
+  width: 5rem;
   height: 3rem;
+  overflow: auto;
+  font-size: 0.32rem;
+}
+#pin-result-lists .result-lists .num {
+  display: inline-block;
+  width: 1rem;
+  margin-left: 0.2rem;
+}
+#pin-result-lists .result-lists .name {
+  display: inline-block;
+  width: 2rem;
+  text-align: left;
+}
+#pin-result-lists .result-lists .score {
+  display: inline-block;
+  width: 1.1rem;
 }
 #pin-result-lists #form-contact {
   position: absolute;
@@ -1244,6 +1260,16 @@ html, body {
 }
 #pin-result-lists #form-contact .input-box {
   margin-bottom: 0.2rem;
+}
+#pin-result-lists .btn-submit {
+  width: 1.6rem;
+  height: .8rem;
+  background: url(../../images/buttons.png) 0rem -4.2rem no-repeat;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  display: inline-block;
+  float: right;
 }
 
 .share-pop img {
