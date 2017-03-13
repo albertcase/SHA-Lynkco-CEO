@@ -1171,7 +1171,7 @@ weixinshare({
             Common.gotoPin(8);
             Api.isLogin(function(data){
                 if(data.info){
-                    $('.form-information').html('');
+                    $('#form-contact').addClass('hasinfo');
                 }
             });
         //    get ranklist
