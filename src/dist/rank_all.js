@@ -591,7 +591,7 @@ $(document).ready(function(){
                         weixinshare({
                             title1: '看我CEO测试高达'+data.msg.total+'分，实力碾压你的双商！',
                             des: '用实力让情怀落地，用分数为自己说话',
-                            link: window.location.origin+'/rank?id='+data.msg,
+                            link: window.location.href,
                             img: window.location.origin+'/src/images/share.jpg'
                         },function(){
 
