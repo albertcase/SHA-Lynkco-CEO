@@ -1,3 +1,4 @@
+<?php print $ismy;?>
 <!DOCTYPE html>
 <html>
 <head lang="en">

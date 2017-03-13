@@ -10,7 +10,24 @@ class PageController extends Controller {
 	}
 
 	public function rankAction() {	
-		$this->render('rank');
+		global $user;
+
+		$request = $this->request;
+		$fields = array(
+			'id' => array('notnull', '120'),
+		);
+		$request->validation($fields);
+		$id = $request->query->get('id');
+		$databaseAPI = new \Lib\DatabaseAPI();
+		$product = $databaseAPI->loadMakeById($id);
+		$ismy = 1;
+		//绑定
+		if ($user->uid != $product->uid) {
+			$ismy = 0;
+			$databaseAPI->bandShare($user->uid, $product->uid);
+			$databaseAPI->bandShare($product->uid, $user->uid);
+		}
+		$this->render('rank', array('ismy' => $ismy));
 	}
 
 	public function jssdkConfigJsAction() {
