@@ -868,8 +868,9 @@ $(document).ready(function(){
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                self.doGenerateAni();
-                //Common.gotoPin(0);
+                //self.doGenerateAni();
+                Common.gotoPin(2);
+
                 //bind events
                 self.bindEvent();
 
@@ -913,7 +914,8 @@ $(document).ready(function(){
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
             }else{
-                Common.alertBox.add('Please select an option or write your message');
+                Common.alertBox.add('请选择一个标签或输入自己的答案');
+
             }
         });
 

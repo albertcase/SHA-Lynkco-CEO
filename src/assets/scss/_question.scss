@@ -53,6 +53,17 @@
       background: #000;
     }
   }
+  .btn-next{
+    width: 1.8rem;
+    height: 0.76rem;
+    background: url("../../images/buttons.png") no-repeat;
+    background-position: 0 0;
+    -webkit-background-size: 2.55rem;
+    background-size: 2.55rem;
+    text-indent: -999em;
+    margin: 0.2rem auto 0;
+  }
+
 }
 
 
@@ -77,6 +88,16 @@
   .q-lists{
     .item{
       position: absolute;
+      .btn-selected{
+        width: 1.8rem;
+        height: 0.8rem;
+        background: url("../../images/buttons.png") no-repeat;
+        -webkit-background-size: 2.55rem;
+        background-size: 2.55rem;
+        text-indent: -999em;
+        background-position: 0 -0.7rem;
+        margin: 0.2rem auto;
+      }
     }
     .item-a{
       top: 50%;

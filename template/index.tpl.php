@@ -69,7 +69,7 @@
                         <input type="text" id="self-evaluation" placeholder="在此输入自己的答案"/>
                     </div>
                 </div>
-                <div class="btn btn-next">next</div>
+                <div class="btn-next">next</div>
             </div>
         </div>
         <!-- question 2 请用一件事证明你的能动力-->
@@ -83,19 +83,19 @@
                         <div class="answer">
                             <img src="/src/images/q2-a.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q2-b.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q2-c.png" alt="勇敢去表达把自己的故事纹在身上"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                 </ul>
             </div>
@@ -119,19 +119,19 @@
                         <div class="answer">
                             <img src="/src/images/q4-a.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q4-b.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q4-c.png" alt="选择一张你喜欢的圆点图案"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                 </ul>
             </div>
@@ -147,19 +147,19 @@
                         <div class="answer">
                             <img src="/src/images/q5-a.png" alt="5"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-b">
                         <div class="answer">
                             <img src="/src/images/q5-b.png" alt="4"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                     <li class="item item-c">
                         <div class="answer">
                             <img src="/src/images/q5-c.png" alt="3"/>
                         </div>
-                        <div class="btn btn-selected">就选他</div>
+                        <div class="btn-selected">就选他</div>
                     </li>
                 </ul>
             </div>

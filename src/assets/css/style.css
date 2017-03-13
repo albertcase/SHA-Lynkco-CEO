@@ -1260,6 +1260,16 @@ html, body {
   color: #fff;
   background: #000;
 }
+#pin-question-1 .btn-next {
+  width: 1.8rem;
+  height: 0.76rem;
+  background: url("../../images/buttons.png") no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  margin: 0.2rem auto 0;
+}
 
 .pin-shake .question-wrap {
   position: absolute;
@@ -1286,6 +1296,16 @@ html, body {
 }
 .pin-shake .q-lists .item {
   position: absolute;
+}
+.pin-shake .q-lists .item .btn-selected {
+  width: 1.8rem;
+  height: 0.8rem;
+  background: url("../../images/buttons.png") no-repeat;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  background-position: 0 -0.7rem;
+  margin: 0.2rem auto;
 }
 .pin-shake .q-lists .item-a {
   top: 50%;
