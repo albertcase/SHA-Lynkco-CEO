@@ -9,6 +9,26 @@ class PageController extends Controller {
 		$this->render('index');
 	}
 
+	public function jssdkConfigJsAction() {
+		$request = $this->Request();
+		$fields = array(
+		    'url' => array('notnull', '120'),
+	    );
+		$request->validation($fields);
+		$url = urldecode($request->query->get('url'));
+	  	$this->hostValid($url);
+	  	$config = $this->jssdkConfig($url);
+	  	$json = json_encode(array('status' => '1', 'data' => $config));
+	  	return $this->Response("SignWeiXinJs({$json})");
+	}
+
+	public function jssdkConfig($url = '') {
+		$RedisAPI = new \Lib\RedisAPI();
+		$jsapi_ticket = $RedisAPI->getJSApiTicket();
+		$wechatJSSDKAPI = new \Lib\JSSDKAPI();
+		return $wechatJSSDKAPI->getJSSDKConfig(APPID, $jsapi_ticket, $url);
+	}
+
 	public function resultAction() {	
 		global $user;
 
