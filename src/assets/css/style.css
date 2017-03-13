@@ -1150,7 +1150,7 @@ html, body {
 #pin-upload .upload-wrap {
   width: 6.07rem;
   height: 8.59rem;
-  border: #fff 0.1rem solid;
+  border: #fff 0.14rem solid;
 }
 #pin-upload .btn-upload {
   position: absolute;
@@ -1233,7 +1233,7 @@ html, body {
 }
 #pin-result-lists .v-content {
   box-sizing: border-box;
-  border: #fff 0.1rem solid;
+  border: #fff 0.14rem solid;
 }
 #pin-result-lists .result-lists {
   position: absolute;
