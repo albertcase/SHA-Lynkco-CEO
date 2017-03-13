@@ -7,6 +7,7 @@ class PageController extends Controller {
 
 	public function indexAction() {	
 		global $user;
+		$databaseAPI = new \Lib\DatabaseAPI();
 		$product = $databaseAPI->loadMakeByUid($id);
 		if ($product) {
 			$this->redirect("/rank?id=".$product->id);
