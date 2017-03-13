@@ -88,7 +88,18 @@
                     }else{
                         Common.alertBox.add(data.msg);
                     }
-                })
+                });
+
+                //weixinshare
+                weixinshare({
+                    title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
+                    des: '用实力让情怀落地，用分数为自己说话',
+                    link: window.location.origin,
+                    img: window.location.origin+'/src/images/share.jpg'
+                },function(){
+
+                });
+
 
                 //bind events
                 self.bindEvent();
@@ -121,7 +132,7 @@
             Common.gotoPin(8);
             Api.isLogin(function(data){
                 if(data.info){
-                    $('.form-information').html('');
+                    $('#form-contact').addClass('hasinfo');
                 }
             });
             //    get ranklist
