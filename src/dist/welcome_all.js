@@ -1141,6 +1141,10 @@ weixinshare({
         $('.btn-share').on('touchstart',function(){
             $('.share-pop').addClass('show');
         });
+        //share-pop
+        $('.share-pop').on('touchstart',function(){
+            $('.share-pop').removeClass('show');
+        });
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(8);
@@ -1185,11 +1189,6 @@ weixinshare({
     //    close the ranklist page
         $('#pin-result-lists .btn-close').on('touchstart',function(){
             Common.gotoPin(7);
-        });
-
-        //share-pop
-        $('.share-pop').on('touchstart',function(){
-            $('.share-pop').removeClass('show');
         });
 
 

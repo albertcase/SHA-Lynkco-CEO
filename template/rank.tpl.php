@@ -45,8 +45,36 @@
                     <?php if($ismy) {
                         echo '<span class="btn-play">我也要测</span>';
                     }else {
-                        echo '<span class="btn-next btn-scorelists">排行榜</span><span class="btn-next btn-share">趣秀自己</span>';
+                        echo '<span class="btn-scorelists">排行榜</span><span class="btn-share">趣秀自己</span>';
                     }?>
+                </div>
+            </div>
+        </div>
+        <!-- CEO 排行榜-->
+        <div class="pin pin-9" id="pin-result-lists">
+            <div class="v-content">
+                <div class="btn-close">close</div>
+                <div class="result-wrap">
+                    <img src="/src/images/bg-3.jpg" alt="upload"/>
+                    <ul class="result-lists">
+
+                    </ul>
+                    <form id="form-contact">
+                        <p class="des">
+                            <img src="/src/images/p8-t1.png" alt="upload"/>
+                        </p>
+                        <div class="form-information">
+                            <div class="input-box input-box-name">
+                                <!--<label for="input-name">姓名:</label>-->
+                                <input type="text" id="input-name" placeholder="留下你的名字"/>
+                            </div>
+                            <div class="input-box input-box-mobile">
+                                <!--<label for="input-mobile">手机:</label>-->
+                                <input type="text" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
+                            </div>
+                        </div>
+                        <div class="btn-submit">提 交</div>
+                    </form>
                 </div>
             </div>
         </div>
