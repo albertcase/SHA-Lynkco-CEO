@@ -868,8 +868,8 @@ $(document).ready(function(){
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
-                Common.gotoPin(0);
+                self.doGenerateAni();
+                //Common.gotoPin(0);
                 //bind events
                 self.bindEvent();
 
@@ -1068,7 +1068,7 @@ $(document).ready(function(){
         var doAni = new reqAnimate($('.bg img'),{
             fps: 6,
             totalFrames: 24,
-            time: 2,
+            time: 1,
             processAnimation: function(){
                 //console.log(self.loadingImg[j]);
                 //$('.preload').css('background-image','url("'+self.loadingImg[j]+'")');
@@ -1091,10 +1091,10 @@ $(document).ready(function(){
 
                 //show box and letter
                 //callback();
-                $('.bg').remove();
+                //$('.bg').remove();
                 $('.container').addClass('fadein');
+                $('.bg img').attr('src',self.loadingImg[0]);
                 Common.gotoPin(0);
-                console.log('done');
             }
         });
         doAni.start();
