@@ -74,7 +74,7 @@ Api = {
     submitInfo:function(obj,callback){
         Common.msgBox.add('loading...');
         $.ajax({
-            url:'/api/list',
+            url:'/api/submit',
             type:'POST',
             dataType:'json',
             data:obj,

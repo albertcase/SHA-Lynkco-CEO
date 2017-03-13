@@ -119,6 +119,11 @@
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(8);
+            Api.isLogin(function(data){
+                if(data.info){
+                    $('.form-information').html('');
+                }
+            });
             //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){
@@ -149,6 +154,11 @@
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(1);
+            Api.isLogin(function(data){
+                if(data.info){
+                    $('.form-information').html('');
+                }
+            });
             //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){
@@ -176,7 +186,9 @@
                     info:$('#input-mobile').val()
                 },function(data){
                     if(data.status==1){
-                        Common.alertBox.add('提交成功');
+                        //Common.alertBox.add('提交成功');
+                        $('#form-contact').addClass('hasinfo');
+
                     }else{
                         Common.alertBox.add(data.msg);
                     }

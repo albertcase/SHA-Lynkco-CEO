@@ -72,6 +72,9 @@
                         <p class="des">
                             <img src="/src/images/p8-t1.png" alt="upload"/>
                         </p>
+                        <p class="tips-success">
+                            <img src="/src/images/btn-submit-success.png" alt="upload"/>
+                        </p>
                         <div class="form-information">
                             <div class="input-box input-box-name">
                                 <!--<label for="input-name">姓名:</label>-->
@@ -81,8 +84,8 @@
                                 <!--<label for="input-mobile">手机:</label>-->
                                 <input type="text" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
                             </div>
+                            <div class="btn-submit">提 交</div>
                         </div>
-                        <div class="btn-submit">提 交</div>
                     </form>
                 </div>
             </div>
