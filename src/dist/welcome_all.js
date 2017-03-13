@@ -605,167 +605,34 @@ var fabric=fabric||{version:"1.5.0"};typeof exports!="undefined"&&(exports.fabri
 				$('.alertpop').remove();
 			}
 		},
+		overscroll: function(el){
+			el.addEventListener('touchstart', function() {
+				var top = el.scrollTop
+					, totalScroll = el.scrollHeight
+					, currentScroll = top + el.offsetHeight
+				//If we're at the top or the bottom of the containers
+				//scroll, push up or down one pixel.
+				//
+				//this prevents the scroll from "passing through" to
+				//the body.
+				console.log(currentScroll);
+				if(top === 0) {
+					el.scrollTop = 1
+				} else if(currentScroll === totalScroll) {
+					el.scrollTop = top - 1
+				}
+			})
+			el.addEventListener('touchmove', function(evt) {
+				//if the content is actually scrollable, i.e. the content is long enough
+				//that scrolling can occur
+				if(el.offsetHeight < el.scrollHeight)
+					evt._isScroller = true
+			})
+		},
 
 
 	};
 
-	var isScroll=true;
-	var noBounce = function() {
-		var module = {};
-
-		var settings = {
-			animate: false
-		};
-
-		var track = [];
-
-		var velocity = {
-			x: 0,
-			y: 0
-		};
-
-		var vector = {
-			subtraction: function(v1, v2) {
-				return {
-					x: v1.x - v2.x,
-					y: v1.y - v2.y
-				};
-			},
-			length: function(v) {
-				return Math.sqrt((v.x * v.x) + (v.y * v.y));
-			},
-			unit: function(v) {
-				var length = vector.length(v);
-				v.x /= length;
-				v.y /= length;
-			},
-			skalarMult: function(v, s) {
-				v.x *= s;
-				v.y *= s;
-			}
-		};
-
-		var requestAnimFrame = (function() {
-			return window.requestAnimationFrame ||
-				window.webkitRequestAnimationFrame ||
-				window.mozRequestAnimationFrame ||
-				window.oRequestAnimationFrame ||
-				window.msRequestAnimationFrame ||
-				function(callback) {
-					window.setTimeout(callback, 1000 / 60);
-				};
-		})();
-
-		function handleTouchStart(evt) {
-			var point,
-				touch;
-
-			touch = evt.changedTouches[0];
-			point = {
-				x: touch.clientX,
-				y: touch.clientY,
-				timeStamp: evt.timeStamp
-			};
-			track = [point];
-		}
-
-		function handleTouchMove(evt) {
-			var point,
-				touch;
-
-			evt.preventDefault();
-			if(isScroll){
-				touch = evt.changedTouches[0];
-				point = {
-					x: touch.clientX,
-					y: touch.clientY,
-					timeStamp: evt.timeStamp
-				};
-				track.push(point);
-				doScroll();
-			}
-
-		}
-
-		function handleTouchEnd(evt) {
-			if (track.length > 2 && settings.animate) {
-				velocity = calcVelocity();
-				requestAnimFrame(animate);
-			}
-		}
-
-		function calcVelocity() {
-			var p1,
-				p2,
-				v,
-				timeDiff,
-				length;
-
-			p1 = track[0];
-			p2 = track[track.length - 1];
-			timeDiff = p2.timeStamp - p1.timeStamp;
-			v = vector.subtraction(p2, p1);
-			length = vector.length(v);
-			vector.unit(v);
-			vector.skalarMult(v, length / timeDiff * 20);
-			return v;
-		}
-
-		function doScroll() {
-			var p1,
-				p2,
-				x,
-				y;
-
-			if (track.length > 1) {
-				p1 = track[track.length - 1];
-				p2 = track[track.length - 2];
-				x = p2.x - p1.x;
-				y = p2.y - p1.y;
-				requestAnimFrame(function() {
-					window.scrollBy(x, y);
-				});
-			}
-		}
-
-		function animate() {
-			scrollBy(-velocity.x, -velocity.y);
-			vector.skalarMult(velocity, 0.95);
-			if (vector.length(velocity) > 0.2) {
-				requestAnimFrame(animate);
-			}
-		}
-
-		//Returns true if it is a DOM element
-		function isElement(o) {
-			return (
-				typeof HTMLElement === "object" ? o instanceof HTMLElement : //DOM2
-				o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName === "string"
-			);
-		}
-
-		module.init = function(options) {
-			if (typeof options.animate === "boolean") {
-				settings.animate = options.animate;
-			}
-			if (isElement(options.element)) {
-				settings.element = options.element;
-			}
-
-			var element = settings.element || document;
-			element.addEventListener("touchstart", handleTouchStart);
-			element.addEventListener("touchmove", handleTouchMove);
-			element.addEventListener("touchend", handleTouchEnd);
-			element.addEventListener("touchcancel", handleTouchEnd);
-			element.addEventListener("touchleave", handleTouchEnd);
-		};
-
-		return module;
-	}();
-
-	noBounce.init({
-		animate: false
-	});
 
 	this.Common = Common;
 
@@ -778,11 +645,68 @@ $(document).ready(function(){
 		$(this).parent().parent('.alertpop').remove();
 	});
 
+	//Common.overscroll(document.querySelector('.wrapper'));
+
+
+
+
 });
 
 
 
 
+/*All the api collection*/
+Api = {
+    //
+    //answer
+    answer:function(callback){
+        Common.msgBox('loading...');
+        $.ajax({
+            url:'/api/answer',
+            type:'POST',
+            dataType:'json',
+            success:function(data){
+                $('.ajaxpop').remove();
+                return callback(data);
+                //status=1 有库存
+            }
+        });
+
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //})
+
+
+    },
+
+    //提交用户表单信息
+    submitUserForm:function(obj,callback){
+        Common.msgBox('loading...');
+        $.ajax({
+            url:'/ajax/post',
+            type:'POST',
+            dataType:'json',
+            data:obj,
+            success:function(data){
+                $('.ajaxpop').remove();
+                return callback(data);
+            }
+        });
+
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //});
+
+
+    },
+
+
+
+};
 /*For join page
  * Inclue two function, one is load new qr for each person, another is show rule popup
  * */
@@ -790,7 +714,7 @@ $(document).ready(function(){
     var controller = function(){
         //each answer has relative score
         this.questionScore = {
-            q1:[10,10,10,10,10,20],
+            q1:10,
             q2:[10,10,20],
             q3:12, //用秒来计时，时间不一样，对应的分值也不同,默认分值是12
             q4:[10,10,20],
@@ -870,9 +794,8 @@ $(document).ready(function(){
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                self.doGenerateAni();
-                
-                //Common.gotoPin(8);
+                //self.doGenerateAni();
+                Common.gotoPin(2);
 
                 //bind events
                 self.bindEvent();
@@ -909,6 +832,8 @@ $(document).ready(function(){
         //select question 1
         $('#pin-question-1 .q-lists .item').on('touchstart',function(){
             var curIndex = $(this).index();
+            //clear text content
+            $('#self-evaluation').val('');
             $(this).addClass('active').siblings().removeClass('active');
             self.selectedOption.q1 = curIndex;
         });
@@ -916,10 +841,16 @@ $(document).ready(function(){
         $('#pin-question-1 .btn-next').on('click',function(){
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
+                self.selectedOption.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?$('#pin-question-1 .q-lists .active').index():$('#self-evaluation').val().toString();
+                self.questionScore.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?10:20;
             }else{
                 Common.alertBox.add('请选择一个标签或输入自己的答案');
-
             }
+        });
+
+        //focus input, lose list active
+        $('#self-evaluation').on('focus',function(){
+            $('#pin-question-1 .q-lists .active').removeClass('active');
         });
 
         //select question 2
@@ -942,15 +873,15 @@ $(document).ready(function(){
 
             var curTime = parseInt($('#countdown').html());
             if(curTime<15 && curTime >= 13){
-                self.selectedOption.q3 = 12+8;
+                self.questionScore.q3 = 12+8;
             }else if(curTime<13 && curTime >= 10){
-                self.selectedOption.q3 = 12+6;
+                self.questionScore.q3 = 12+6;
             }else if(curTime<10 && curTime >= 7){
-                self.selectedOption.q3 = 12+4;
+                self.questionScore.q3 = 12+4;
             }else if(curTime<7 && curTime >= 4){
-                self.selectedOption.q3 = 12+2;
+                self.questionScore.q3 = 12+2;
             }else{
-                self.selectedOption.q3 = 12;
+                self.questionScore.q3 = 12;
             }
             Common.gotoPin(5);
         });
@@ -1045,7 +976,7 @@ $(document).ready(function(){
                 self.canvas.add(imgobj);
                 console.log(self.questionScore);
                 console.log(self.selectedOption);
-                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+                var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
                 console.log(totalScore);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',

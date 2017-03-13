@@ -5,7 +5,7 @@
     var controller = function(){
         //each answer has relative score
         this.questionScore = {
-            q1:[10,10,10,10,10,20],
+            q1:10,
             q2:[10,10,20],
             q3:12, //用秒来计时，时间不一样，对应的分值也不同,默认分值是12
             q4:[10,10,20],
@@ -85,8 +85,8 @@
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                self.doGenerateAni();
-                //Common.gotoPin(8);
+                //self.doGenerateAni();
+                Common.gotoPin(2);
 
                 //bind events
                 self.bindEvent();
@@ -123,6 +123,8 @@
         //select question 1
         $('#pin-question-1 .q-lists .item').on('touchstart',function(){
             var curIndex = $(this).index();
+            //clear text content
+            $('#self-evaluation').val('');
             $(this).addClass('active').siblings().removeClass('active');
             self.selectedOption.q1 = curIndex;
         });
@@ -130,10 +132,16 @@
         $('#pin-question-1 .btn-next').on('click',function(){
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
+                self.selectedOption.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?$('#pin-question-1 .q-lists .active').index():$('#self-evaluation').val().toString();
+                self.questionScore.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?10:20;
             }else{
                 Common.alertBox.add('请选择一个标签或输入自己的答案');
-
             }
+        });
+
+        //focus input, lose list active
+        $('#self-evaluation').on('focus',function(){
+            $('#pin-question-1 .q-lists .active').removeClass('active');
         });
 
         //select question 2
@@ -156,15 +164,15 @@
 
             var curTime = parseInt($('#countdown').html());
             if(curTime<15 && curTime >= 13){
-                self.selectedOption.q3 = 12+8;
+                self.questionScore.q3 = 12+8;
             }else if(curTime<13 && curTime >= 10){
-                self.selectedOption.q3 = 12+6;
+                self.questionScore.q3 = 12+6;
             }else if(curTime<10 && curTime >= 7){
-                self.selectedOption.q3 = 12+4;
+                self.questionScore.q3 = 12+4;
             }else if(curTime<7 && curTime >= 4){
-                self.selectedOption.q3 = 12+2;
+                self.questionScore.q3 = 12+2;
             }else{
-                self.selectedOption.q3 = 12;
+                self.questionScore.q3 = 12;
             }
             Common.gotoPin(5);
         });
@@ -259,7 +267,7 @@
                 self.canvas.add(imgobj);
                 console.log(self.questionScore);
                 console.log(self.selectedOption);
-                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+                var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
                 console.log(totalScore);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',

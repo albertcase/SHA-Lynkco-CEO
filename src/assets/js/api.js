@@ -1,11 +1,11 @@
 /*All the api collection*/
 Api = {
-    //是否授权，并且获取用户信息
-    //获取用户表单信息
-    isLogin:function(callback){
+    //
+    //answer
+    answer:function(callback){
         Common.msgBox('loading...');
         $.ajax({
-            url:'/api/islogin',
+            url:'/api/answer',
             type:'POST',
             dataType:'json',
             success:function(data){
