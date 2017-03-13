@@ -416,7 +416,7 @@ Api = {
 ;(function(){
     function weixinshare(obj){
         $.ajax({
-            url:'/jssdk?url='+window.location.href.split('#')[0],
+            url:'/jssdk?url='+encodeURIComponent(location.href.split('#')[0]),
             type:'GET',
             dataType:'json',
             success:function(data){
