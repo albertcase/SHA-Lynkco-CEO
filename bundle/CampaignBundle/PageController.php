@@ -11,17 +11,14 @@ class PageController extends Controller {
 
 	public function jssdkConfigJsAction() {
 		ini_set("display_errors",1);
-		echo 1;
 		$request = $this->Request();
 		$fields = array(
 		    'url' => array('notnull', '120'),
 	    );
 		$request->validation($fields);
 		$url = urldecode($request->query->get('url'));
-	  	$this->hostValid($url);
 	  	$config = $this->jssdkConfig($url);
 	  	$json = json_encode(array('status' => '1', 'data' => $config));
-	  	echo exit;
 	  	return $this->Response("SignWeiXinJs({$json})");
 	}
 
