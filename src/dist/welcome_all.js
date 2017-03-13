@@ -806,8 +806,9 @@ Api = {
 }).call(this);
 
 $(document).ready(function(){
+    console.log(1);
 
-})
+});
 /*For join page
  * Inclue two function, one is load new qr for each person, another is show rule popup
  * */

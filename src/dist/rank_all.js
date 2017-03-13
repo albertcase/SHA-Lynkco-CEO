@@ -466,15 +466,9 @@ Api = {
 }).call(this);
 
 $(document).ready(function(){
-    weixinshare({
-        title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
-        des: '用实力让情怀落地，用分数为自己说话',
-        link: window.location.origin,
-        img: window.location.origin+'/src/images/share.jpg'
-    },function(){
+    console.log(1);
 
-    });
-})
+});
 /*For join page
  * Inclue two function, one is load new qr for each person, another is show rule popup
  * */
@@ -565,7 +559,16 @@ $(document).ready(function(){
                     }else{
                         Common.alertBox.add(data.msg);
                     }
-                })
+                });
+
+                weixinshare({
+                    title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
+                    des: '用实力让情怀落地，用分数为自己说话',
+                    link: window.location.origin,
+                    img: window.location.origin+'/src/images/share.jpg'
+                },function(){
+
+                });
 
                 //bind events
                 self.bindEvent();
