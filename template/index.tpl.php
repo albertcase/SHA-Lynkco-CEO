@@ -187,7 +187,9 @@
                     <canvas id="c"></canvas>
                 </div>
                 <div class="buttons hide">
-                    <span class="btn-prev btn-again">换一张</span>
+                    <span class="btn-prev btn-again">
+                        <input type="file" id="capture2" accept="image/png,image/jpg,image/gif"/>
+                    </span>
                     <span class="btn-prev btn-ok">确认</span>
                     <span class="btn-next btn-scorelists">排行榜</span>
                     <span class="btn-next btn-share">趣秀自己</span>

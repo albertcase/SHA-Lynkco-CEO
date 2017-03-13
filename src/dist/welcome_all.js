@@ -871,8 +871,8 @@ $(document).ready(function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-                //Common.gotoPin(0);
-                
+
+                //Common.gotoPin(7);
 
                 //bind events
                 self.bindEvent();
@@ -1016,8 +1016,18 @@ $(document).ready(function(){
             enableGenerate = true;
 
         });
+        //input file change
+        $('#capture2').on('change', function(e){
+            //clear canvas first
+            var canvaswidth = $('.upload-wrap').width();
+            self.canvas.clear();
+            self.uploadPhoto(e.target,canvaswidth);
+            $('.btn-upload').addClass('hide');
+            enableGenerate = true;
+        });
 
-        //btn-again
+        //btn-again == capture2
+        //btn-ok
         $('#pin-upload .btn-ok').on('click',function(){
             //render new picture
             if(!enableGenerate){
