@@ -245,7 +245,7 @@ class DatabaseAPI {
 	}
 
 	public function loadSubmit($uid){
-		$sql = "SELECT `name`, `info` FROM `answer` WHERE `uid` = ?"; 
+		$sql = "SELECT `name`, `info` FROM `submit` WHERE `uid` = ?"; 
 		$res = $this->connect()->prepare($sql);
 		$res->bind_param("s", $uid);
 		$res->execute();
