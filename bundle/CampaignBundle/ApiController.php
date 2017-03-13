@@ -23,9 +23,9 @@ class ApiController extends Controller {
 
     	$DatabaseAPI = new \Lib\DatabaseAPI();
 		$rs = $DatabaseAPI->loadMakeByUid($user->uid);
-    	
+    	$info = $DatabaseAPI->loadSubmit($user->uid);
     	if ($rs) {
-    		$data = array('status' => 1, 'msg' => $rs);
+    		$data = array('status' => 1, 'msg' => $rs, 'info' => $info);
 			$this->dataPrint($data);
     	} else {
     		$data = array('status' => 0, 'msg' => '未完成作品');

@@ -244,6 +244,21 @@ class DatabaseAPI {
 			return FALSE;
 	}
 
+	public function loadSubmit($uid){
+		$sql = "SELECT `name`, `info` FROM `answer` WHERE `uid` = ?"; 
+		$res = $this->connect()->prepare($sql);
+		$res->bind_param("s", $uid);
+		$res->execute();
+		$res->bind_result($name, $info);
+		if($res->fetch()) {
+			$info = new \stdClass();
+			$info->name = $name;
+			$info->info = $info;
+			return $info;
+		}
+		return NULL;
+	}
+
 	public function clearMake(){
 		$sql = "TRUNCATE table answer"; 
 		$res = $this->connect()->prepare($sql); 
