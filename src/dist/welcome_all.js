@@ -903,9 +903,9 @@ weixinshare({
             onComplete: function(){
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
-                //self.doGenerateAni();
+                self.doGenerateAni();
 
-                Common.gotoPin(8);
+                //Common.gotoPin(8);
 
                 //bind events
                 self.bindEvent();
