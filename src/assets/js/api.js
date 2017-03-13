@@ -1,15 +1,17 @@
 /*All the api collection*/
 Api = {
-    //是否授权，并且获取用户信息
-    //获取用户表单信息
-    isLogin:function(callback){
-        Common.msgBox('loading...');
+    //
+    //answer answer1-5
+    //status =1  msg = 分享id
+    answer:function(obj,callback){
+        Common.msgBox.add('loading...');
         $.ajax({
-            url:'/api/islogin',
+            url:'/api/answer',
             type:'POST',
+            data:obj,
             dataType:'json',
             success:function(data){
-                $('.ajaxpop').remove();
+                Common.msgBox.remove();
                 return callback(data);
                 //status=1 有库存
             }
@@ -24,16 +26,38 @@ Api = {
 
     },
 
-    //提交用户表单信息
-    submitUserForm:function(obj,callback){
-        Common.msgBox('loading...');
+    //rank list
+    rankList:function(callback){
+        Common.msgBox.add('loading...');
         $.ajax({
-            url:'/ajax/post',
+            url:'/api/list',
+            type:'POST',
+            dataType:'json',
+            success:function(data){
+                Common.msgBox.remove();
+                return callback(data);
+            }
+        });
+
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //});
+
+
+    },
+    //submit form
+    // name  info
+    submitInfo:function(obj,callback){
+        Common.msgBox.add('loading...');
+        $.ajax({
+            url:'/api/list',
             type:'POST',
             dataType:'json',
             data:obj,
             success:function(data){
-                $('.ajaxpop').remove();
+                Common.msgBox.remove();
                 return callback(data);
             }
         });

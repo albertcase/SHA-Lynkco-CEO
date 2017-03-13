@@ -9,6 +9,7 @@
     <meta name="full-screen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/src/dist/css/style.css" />
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="/src/dist/js/welcome_all.min.js"></script>
 </head>
 <body class="page-home">
@@ -207,56 +208,7 @@
                 <div class="result-wrap">
                     <img src="/src/images/bg-3.jpg" alt="upload"/>
                     <ul class="result-lists">
-                        <li class="item">
-                            <span class="num">01</span>
-                            <span class="name">tests</span>
-                            <span class="score">100</span>
-                        </li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
-<li class="item">
-<span class="num">01</span>
-<span class="name">tests</span>
-<span class="score">100</span>
-</li>
+
                     </ul>
                     <form id="form-contact">
                         <p class="des">
@@ -269,7 +221,7 @@
                             </div>
                             <div class="input-box input-box-mobile">
                                 <!--<label for="input-mobile">手机:</label>-->
-                                <input type="tel" maxlength="11" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
+                                <input type="text" id="input-mobile" placeholder="留下手机号码或邮箱地址"/>
                             </div>
                         </div>
                         <div class="btn-submit">提 交</div>

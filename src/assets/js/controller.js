@@ -5,7 +5,7 @@
     var controller = function(){
         //each answer has relative score
         this.questionScore = {
-            q1:[10,10,10,10,10,20],
+            q1:10,
             q2:[10,10,20],
             q3:12, //用秒来计时，时间不一样，对应的分值也不同,默认分值是12
             q4:[10,10,20],
@@ -123,6 +123,8 @@
         //select question 1
         $('#pin-question-1 .q-lists .item').on('touchstart',function(){
             var curIndex = $(this).index();
+            //clear text content
+            $('#self-evaluation').val('');
             $(this).addClass('active').siblings().removeClass('active');
             self.selectedOption.q1 = curIndex;
         });
@@ -130,10 +132,16 @@
         $('#pin-question-1 .btn-next').on('click',function(){
             if($('#pin-question-1 .q-lists .active').length || $('#self-evaluation').val()){
                 Common.gotoPin(3);
+                self.selectedOption.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?$('#pin-question-1 .q-lists .active').index():$('#self-evaluation').val().toString();
+                self.questionScore.q1 = ($('#pin-question-1 .q-lists .active').index()>-1)?10:20;
             }else{
                 Common.alertBox.add('请选择一个标签或输入自己的答案');
-
             }
+        });
+
+        //focus input, lose list active
+        $('#self-evaluation').on('focus',function(){
+            $('#pin-question-1 .q-lists .active').removeClass('active');
         });
 
         //select question 2
@@ -156,15 +164,15 @@
 
             var curTime = parseInt($('#countdown').html());
             if(curTime<15 && curTime >= 13){
-                self.selectedOption.q3 = 12+8;
+                self.questionScore.q3 = 12+8;
             }else if(curTime<13 && curTime >= 10){
-                self.selectedOption.q3 = 12+6;
+                self.questionScore.q3 = 12+6;
             }else if(curTime<10 && curTime >= 7){
-                self.selectedOption.q3 = 12+4;
+                self.questionScore.q3 = 12+4;
             }else if(curTime<7 && curTime >= 4){
-                self.selectedOption.q3 = 12+2;
+                self.questionScore.q3 = 12+2;
             }else{
-                self.selectedOption.q3 = 12;
+                self.questionScore.q3 = 12;
             }
             Common.gotoPin(5);
         });
@@ -257,9 +265,9 @@
                 });
                 //console.log(self.canvas);
                 self.canvas.add(imgobj);
-                console.log(self.questionScore);
-                console.log(self.selectedOption);
-                var totalScore = self.questionScore.q1[self.selectedOption.q1]+self.questionScore.q2[self.selectedOption.q2]+self.selectedOption.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
+                //console.log(self.questionScore);
+                //console.log(self.selectedOption);
+                var totalScore = self.questionScore.q1+self.questionScore.q2[self.selectedOption.q2]+self.questionScore.q3+self.questionScore.q4[self.selectedOption.q4]+self.questionScore.q5[self.selectedOption.q5];
                 console.log(totalScore);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
@@ -284,6 +292,33 @@
                 $('.buttons').addClass('shownext');
                 $('.canvas-container').addClass('hide');
 
+                //Api
+                Api.answer({
+                    answer1:self.selectedOption.q1,
+                    answer2:self.selectedOption.q2,
+                    answer3:self.selectedOption.q3,
+                    answer4:self.selectedOption.q4,
+                    answer5:self.selectedOption.q5,
+                    total:totalScore,
+                    image:renderPic
+                },function(data){
+                    //console.log(data);
+                    if(data.status==1){
+                        Common.alertBox.add('提交成功');
+                        //override share link
+                        weixinshare({
+                            title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
+                            des: '用实力让情怀落地，用分数为自己说话',
+                            link: window.location.origin+'/rank?id='+data.msg,
+                            img: window.location.origin+'/src/images/share.jpg'
+                        },function(){
+
+                        });
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
+
             });
 
         });
@@ -295,6 +330,41 @@
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
             Common.gotoPin(8);
+        //    get ranklist
+            Api.rankList(function(data){
+                if(data.status==1){
+                    console.log(data);
+                    var listHtml = '';
+                    for(var z=0;z<data.list.length;z++){
+                        listHtml = listHtml+'<li class="item">'+
+                            '<span class="num">'+z+'/</span>'+
+                            '<span class="name">'+data.list[z].nickname+'</span>'+
+                            '<span class="score">'+data.list[z].total+'</span>'+
+                            '</li>';
+                    }
+                    $('.result-lists').html(listHtml);
+                }else{
+                    Common.alertBox.add(data.msg);
+                }
+            });
+        });
+
+    //    submit form
+        $('#form-contact .btn-submit').on('touchstart', function(){
+            if($('#input-name').val() && $('#input-mobile').val()){
+                Api.submitInfo({
+                    name:$('#input-name').val(),
+                    info:$('#input-mobile').val()
+                },function(data){
+                    if(data.status==1){
+                        Common.alertBox.add('提交成功');
+                    }else{
+                        Common.alertBox.add(data.msg);
+                    }
+                });
+            }else{
+                Common.alertBox.add('请完善表单');
+            }
         });
 
 
