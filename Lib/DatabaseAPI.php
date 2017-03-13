@@ -165,9 +165,9 @@ class DatabaseAPI {
 	 * 
 	 */
 	public function insertMake($data){
-		$sql = "INSERT INTO `answer` SET `uid` = ?, `nickname` = ?, `answer1` = ?, `answer2` = ?, `answer3` = ?, `answer4` = ?, `answer5` = ?, `total` = ?"; 
+		$sql = "INSERT INTO `answer` SET `uid` = ?, `nickname` = ?, `answer1` = ?, `answer2` = ?, `answer3` = ?, `answer4` = ?, `answer5` = ?, `total` = ?, `image` = ?"; 
 		$res = $this->connect()->prepare($sql); 
-		$res->bind_param("ssssssss", $data->uid, $data->nickname, $data->answer1, $data->answer2, $data->answer3, $data->answer4, $data->answer5, $data->total);
+		$res->bind_param("sssssssss", $data->uid, $data->nickname, $data->answer1, $data->answer2, $data->answer3, $data->answer4, $data->answer5, $data->total, $data->image);
 		if($res->execute()) 
 			return $res->insert_id;
 		else 
@@ -175,17 +175,18 @@ class DatabaseAPI {
 	}
 
 	public function loadMakeById($id){
-		$sql = "SELECT `id`, `uid`, `nickname`, `total` FROM `answer` WHERE `id` = ?"; 
+		$sql = "SELECT `id`, `uid`, `nickname`, `total`, `image` FROM `answer` WHERE `id` = ?"; 
 		$res = $this->connect()->prepare($sql);
 		$res->bind_param("s", $id);
 		$res->execute();
-		$res->bind_result($id, $uid, $nickname, $total);
+		$res->bind_result($id, $uid, $nickname, $total, $image);
 		if($res->fetch()) {
 			$info = new \stdClass();
 			$info->id = $id;
 			$info->uid = $uid;
 			$info->nickname = $nickname;
 			$info->total = $total;
+			$info->image = $image;
 			return $info;
 		}
 		return NULL;
