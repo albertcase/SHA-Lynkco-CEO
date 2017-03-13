@@ -1092,7 +1092,35 @@ html, body {
   height: 100%;
   z-index: 1;
   background: url("../../images/bg.jpg") center center no-repeat;
-  background-size: conver;
+  background-size: cover;
+}
+
+.preload {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../images/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.preload img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  opacity: 0;
+}
+.wrapper.fadein {
+  opacity: 1;
 }
 
 #pin-landing {
@@ -1113,6 +1141,12 @@ html, body {
   text-indent: -999em;
 }
 
+#pin-upload .tips {
+  text-align: center;
+}
+#pin-upload .tips img {
+  margin: 0.6rem auto 0;
+}
 #pin-upload .upload-wrap {
   width: 6.07rem;
   height: 8.59rem;
@@ -1135,17 +1169,49 @@ html, body {
   width: 100%;
   height: 100%;
 }
-#pin-upload .buttons {
-  position: absolute;
-  bottom: -1rem;
-}
-#pin-upload #capture {
+#pin-upload #capture, #pin-upload #capture2 {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
+}
+#pin-upload .buttons {
+  position: absolute;
+  bottom: -1rem;
+  width: 100%;
+}
+#pin-upload .buttons .btn-next {
+  display: none;
+}
+#pin-upload .buttons.shownext .btn-prev {
+  display: none;
+}
+#pin-upload .buttons.shownext .btn-next {
+  display: inline-block;
+}
+#pin-upload .btn-again, #pin-upload .btn-ok, #pin-upload .btn-scorelists, #pin-upload .btn-share {
+  width: 2rem;
+  height: 0.8rem;
+  background: url("../../images/buttons.png") no-repeat;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  display: inline-block;
+  background-position: 0.3rem -1.6rem;
+}
+#pin-upload .btn-ok, #pin-upload .btn-share {
+  position: relative;
+  background-position: 0.3rem -2.4rem;
+  float: right;
+}
+#pin-upload .btn-scorelists {
+  background-position: 0.3rem -5rem;
+}
+#pin-upload .btn-share {
+  background-position: 0.3rem -5.8rem;
+  width: 2.6rem;
 }
 
 #pin-result-lists .v-content {
@@ -1156,13 +1222,29 @@ html, body {
   position: absolute;
   left: 0.4rem;
   top: 1rem;
-  width: 4.5rem;
-  height: 3rem;
+  width: 5rem;
+  height: 2.4rem;
+  overflow: auto;
+  font-size: 0.32rem;
+}
+#pin-result-lists .result-lists .num {
+  display: inline-block;
+  width: 1rem;
+  margin-left: 0.2rem;
+}
+#pin-result-lists .result-lists .name {
+  display: inline-block;
+  width: 2rem;
+  text-align: left;
+}
+#pin-result-lists .result-lists .score {
+  display: inline-block;
+  width: 1.1rem;
 }
 #pin-result-lists #form-contact {
   position: absolute;
   left: 0.4rem;
-  top: 5rem;
+  top: 4rem;
 }
 #pin-result-lists #form-contact .des {
   margin-bottom: 0.3rem;
@@ -1179,6 +1261,22 @@ html, body {
 }
 #pin-result-lists #form-contact .input-box {
   margin-bottom: 0.2rem;
+}
+#pin-result-lists .btn-submit {
+  width: 1.6rem;
+  height: .8rem;
+  background: url(../../images/buttons.png) 0rem -4.2rem no-repeat;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  display: inline-block;
+  float: right;
+}
+
+.share-pop img {
+  position: absolute;
+  right: 0.45rem;
+  top: 0.45rem;
 }
 
 #pin-question-1 .question-wrap > img {
@@ -1212,6 +1310,9 @@ html, body {
   background: #fe335d;
   border-radius: 100%;
 }
+#pin-question-1 .q-lists .item.active {
+  background: rgba(254, 51, 93, 0.2);
+}
 #pin-question-1 .q-lists .item.active:before {
   background: #fff;
 }
@@ -1232,6 +1333,16 @@ html, body {
   color: #fff;
   background: #000;
 }
+#pin-question-1 .btn-next {
+  width: 1.8rem;
+  height: 0.76rem;
+  background: url("../../images/buttons.png") no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  margin: 0.2rem auto 0;
+}
 
 .pin-shake .question-wrap {
   position: absolute;
@@ -1239,10 +1350,10 @@ html, body {
   bottom: 0;
   width: 100%;
   height: 9rem;
-  -moz-transition: left 1s linear, bottom 1s linear;
-  -o-transition: left 1s linear, bottom 1s linear;
-  -webkit-transition: left 1s linear, bottom 1s linear;
-  transition: left 1s linear, bottom 1s linear;
+  -moz-transition: left 0.5s linear, bottom 0.5s linear;
+  -o-transition: left 0.5s linear, bottom 0.5s linear;
+  -webkit-transition: left 0.5s linear, bottom 0.5s linear;
+  transition: left 0.5s linear, bottom 0.5s linear;
 }
 .pin-shake .question-content {
   width: 4.61rem;
@@ -1259,6 +1370,20 @@ html, body {
 .pin-shake .q-lists .item {
   position: absolute;
 }
+.pin-shake .q-lists .item .btn-selected {
+  width: 1.8rem;
+  height: 0.8rem;
+  background: url("../../images/buttons.png") no-repeat;
+  -webkit-background-size: 2.55rem;
+  background-size: 2.55rem;
+  text-indent: -999em;
+  background-position: 0 -0.7rem;
+  margin: 0.2rem auto;
+}
+.pin-shake .q-lists .item .btn-selected-overlay {
+  position: absolute;
+  z-index: 2;
+}
 .pin-shake .q-lists .item-a {
   top: 50%;
   left: 0.7rem;
@@ -1267,6 +1392,12 @@ html, body {
   -ms-transform: translate(-100%, -50%);
   -o-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
+}
+.pin-shake .q-lists .item-a .btn-selected-overlay {
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
 }
 .pin-shake .q-lists .item-b {
   top: 50%;
@@ -1277,6 +1408,12 @@ html, body {
   -o-transform: translate(100%, -50%);
   transform: translate(100%, -50%);
 }
+.pin-shake .q-lists .item-b .btn-selected-overlay {
+  right: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+}
 .pin-shake .q-lists .item-c {
   left: 50%;
   bottom: 0.7rem;
@@ -1285,6 +1422,12 @@ html, body {
   -ms-transform: translate(-50%, 100%);
   -o-transform: translate(-50%, 100%);
   transform: translate(-50%, 100%);
+}
+.pin-shake .q-lists .item-c .btn-selected-overlay {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
 }
 
 #pin-question-3 .btn-time {
