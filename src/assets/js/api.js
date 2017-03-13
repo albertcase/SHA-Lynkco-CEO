@@ -1,5 +1,27 @@
 /*All the api collection*/
 Api = {
+
+    isLogin:function(callback){
+        Common.msgBox.add('loading...');
+        $.ajax({
+            url:'/api/islogin',
+            type:'POST',
+            dataType:'json',
+            success:function(data){
+                Common.msgBox.remove();
+                return callback(data);
+                //status=1 有库存
+            }
+        });
+
+        //return callback({
+        //    status:1,
+        //    avatar:'/src/images/qr-1.png',
+        //    score:'100'
+        //})
+
+
+    },
     //
     //answer answer1-5
     //status =1  msg = 分享id

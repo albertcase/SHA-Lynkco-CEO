@@ -104,7 +104,7 @@
       }
     }
   }
-  .btn-again,.btn-ok,.btn-scorelists,.btn-share{
+  .btn-again,.btn-ok,.btn-scorelists,.btn-share,.btn-play{
     width: 2rem;
     height: 0.8rem;
     background: url("../../images/buttons.png") no-repeat;
@@ -113,6 +113,12 @@
     text-indent: -999em;
     display: inline-block;
     background-position: 0.3rem -1.6rem;
+  }
+  .btn-play{
+    background-position: .3rem -3.4rem;
+    width: 2.6rem;
+    margin: 0 auto;
+    display: block;
   }
   .btn-ok,.btn-share{
     position: relative;

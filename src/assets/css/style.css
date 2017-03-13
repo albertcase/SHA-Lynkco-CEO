@@ -1191,7 +1191,7 @@ html, body {
 #pin-upload .buttons.shownext .btn-next {
   display: inline-block;
 }
-#pin-upload .btn-again, #pin-upload .btn-ok, #pin-upload .btn-scorelists, #pin-upload .btn-share {
+#pin-upload .btn-again, #pin-upload .btn-ok, #pin-upload .btn-scorelists, #pin-upload .btn-share, #pin-upload .btn-play {
   width: 2rem;
   height: 0.8rem;
   background: url("../../images/buttons.png") no-repeat;
@@ -1200,6 +1200,12 @@ html, body {
   text-indent: -999em;
   display: inline-block;
   background-position: 0.3rem -1.6rem;
+}
+#pin-upload .btn-play {
+  background-position: .3rem -3.4rem;
+  width: 2.6rem;
+  margin: 0 auto;
+  display: block;
 }
 #pin-upload .btn-ok, #pin-upload .btn-share {
   position: relative;
