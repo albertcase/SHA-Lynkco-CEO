@@ -10,6 +10,7 @@ class PageController extends Controller {
 	}
 
 	public function jssdkConfigJsAction() {
+		echo 1;
 		$request = $this->Request();
 		$fields = array(
 		    'url' => array('notnull', '120'),
