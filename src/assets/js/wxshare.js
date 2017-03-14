@@ -28,7 +28,6 @@ function weixinshare(obj){
                     dataUrl: '',
                     success: function () {
                         _hmt.push(['_trackEvent', 'buttons', 'click', 'onMenuShareAppMessage']);
-                        callback();
 
                     },
                     cancel: function () {
@@ -41,7 +40,6 @@ function weixinshare(obj){
                     imgUrl: obj.img,
                     success: function () {
                         _hmt.push(['_trackEvent', 'buttons', 'click', 'onMenuShareTimeline']);
-                        callback();
                     },
                     cancel: function () {
 
@@ -57,14 +55,11 @@ function weixinshare(obj){
 };
 
 $(document).ready(function(){
-    console.log(1);
     weixinshare({
         title1: '亮出身份，用分数标榜态度，LYNK & CO邀你来做CEO!',
         des: '用实力让情怀落地，用分数为自己说话',
         link: window.location.href,
         img: window.location.origin+'/src/images/share.jpg'
-    },function(){
-
     });
 
 });

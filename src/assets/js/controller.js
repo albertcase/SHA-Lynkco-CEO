@@ -325,8 +325,6 @@
                             des: '用实力让情怀落地，用分数为自己说话',
                             link: window.location.origin+'/rank?id='+data.msg,
                             img: window.location.origin+'/src/images/share.jpg'
-                        },function(){
-
                         });
                     }else{
                         Common.alertBox.add(data.msg);

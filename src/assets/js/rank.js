@@ -89,8 +89,6 @@
                             des: '用实力让情怀落地，用分数为自己说话',
                             link: window.location.href,
                             img: window.location.origin+'/src/images/share.jpg'
-                        },function(){
-
                         });
                         $('.upload-wrap img').attr('src',data.msg.image);
                         Common.gotoPin(0);

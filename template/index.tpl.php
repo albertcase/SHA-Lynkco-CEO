@@ -19,7 +19,7 @@
     })();
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="/src/dist/js/welcome_all.min.js"></script>
+    <script src="/src/dist/js/welcome_all.min.js?v=1"></script>
 </head>
 <body class="page-home">
 <div class="preload">
