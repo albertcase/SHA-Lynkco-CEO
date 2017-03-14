@@ -134,7 +134,7 @@
         });
         //排行榜
         $('.btn-scorelists').on('touchstart',function(){
-            Common.gotoPin(8);
+            Common.gotoPin(1);
             Api.isLogin(function(data){
                 if(data.info){
                     $('#form-contact').addClass('hasinfo');
