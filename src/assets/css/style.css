@@ -1178,6 +1178,7 @@ html, body {
   width: 100%;
   height: 100%;
   z-index: 2;
+  opacity: 0;
 }
 #pin-upload .buttons {
   position: absolute;
