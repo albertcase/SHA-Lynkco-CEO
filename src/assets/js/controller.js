@@ -89,7 +89,6 @@
                 $('.preload').remove();
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
-
                 //Common.gotoPin(7);
 
                 //bind events
