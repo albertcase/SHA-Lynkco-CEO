@@ -165,11 +165,29 @@ class DatabaseAPI {
 	 * 
 	 */
 	public function insertMake($data){
+		if($this->loadMakeByUid($data->uid)) {
+			$this->updateAnswer($data);
+		} else {
+			$this->insertAnswer($data);
+		}
+	}
+
+	public function insertAnswer($data){
 		$sql = "INSERT INTO `answer` SET `uid` = ?, `nickname` = ?, `answer1` = ?, `answer2` = ?, `answer3` = ?, `answer4` = ?, `answer5` = ?, `total` = ?, `image` = ?"; 
 		$res = $this->connect()->prepare($sql); 
 		$res->bind_param("sssssssss", $data->uid, $data->nickname, $data->answer1, $data->answer2, $data->answer3, $data->answer4, $data->answer5, $data->total, $data->image);
 		if($res->execute()) 
 			return $res->insert_id;
+		else 
+			return FALSE;
+	}
+
+	public function updateAnswer($data){
+		$sql = "UPDATE `answer` SET `nickname` = ?, `answer1` = ?, `answer2` = ?, `answer3` = ?, `answer4` = ?, `answer5` = ?, `total` = ?, `image` = ? WHERE `uid` = ?"; 
+		$res = $this->connect()->prepare($sql); 
+		$res->bind_param("sssssssss", $data->nickname, $data->answer1, $data->answer2, $data->answer3, $data->answer4, $data->answer5, $data->total, $data->image, $data->uid);
+		if($res->execute()) 
+			return TRUE;
 		else 
 			return FALSE;
 	}
