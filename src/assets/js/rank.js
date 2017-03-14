@@ -82,9 +82,7 @@
                 $('.wrapper').addClass('fadein');
 
                 Api.getlistbyid({id:Common.getParameterByName('id')},function(data){
-                    console.log(data);
                     if(data.status==1){
-                        console.log(data);
                         //weixinshare
                         weixinshare({
                             title1: '看我CEO测试高达'+data.msg.total+'分，实力碾压你的双商！',
@@ -130,37 +128,6 @@
         $('.btn-share').on('touchstart',function(){
             $('.share-pop').addClass('show');
         });
-        //排行榜
-        $('.btn-scorelists').on('touchstart',function(){
-            Common.gotoPin(8);
-            Api.isLogin(function(data){
-                if(data.info){
-                    $('#form-contact').addClass('hasinfo');
-                }
-            });
-            //    get ranklist
-            Api.rankList(function(data){
-                if(data.status==1){
-                    console.log(data);
-                    var listHtml = '';
-                    for(var z=0;z<data.list.length;z++){
-                        listHtml = listHtml+'<li class="item">'+
-                            '<span class="num">'+z+'/</span>'+
-                            '<span class="name">'+data.list[z].nickname+'</span>'+
-                            '<span class="score">'+data.list[z].total+'</span>'+
-                            '</li>';
-                    }
-                    $('.result-lists').html(listHtml);
-                }else{
-                    Common.alertBox.add(data.msg);
-                }
-            });
-        });
-
-        //    btn-share
-        $('.btn-share').on('touchstart',function(){
-            $('.share-pop').addClass('show');
-        });
         //share-pop
         $('.share-pop').on('touchstart',function(){
             $('.share-pop').removeClass('show');
@@ -170,13 +137,12 @@
             Common.gotoPin(1);
             Api.isLogin(function(data){
                 if(data.info){
-                    $('.form-information').html('');
+                    $('#form-contact').addClass('hasinfo');
                 }
             });
             //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){
-                    console.log(data);
                     var listHtml = '';
                     for(var z=0;z<data.list.length;z++){
                         listHtml = listHtml+'<li class="item">'+
@@ -216,6 +182,11 @@
         //    close the ranklist page
         $('#pin-result-lists .btn-close').on('touchstart',function(){
             Common.gotoPin(0);
+        });
+
+        //    play again
+        $('#pin-upload .btn-playagain').on('touchstart',function(){
+            window.location.href = location.origin;
         });
 
     };

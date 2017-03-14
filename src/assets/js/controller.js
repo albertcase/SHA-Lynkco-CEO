@@ -90,7 +90,7 @@
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
 
-                //Common.gotoPin(8);
+                //Common.gotoPin(7);
 
                 //bind events
                 self.bindEvent();
@@ -274,7 +274,6 @@
                 // 这一定不是你的 <85
                 imgSrc = '/src/images/image-overlay3.png';
             }
-            //console.log(imgSrc);
             fabric.Image.fromURL(imgSrc,function(imgobj){
                 var radio = $(window).width()/750;
                 imgobj.scale(radio);
@@ -283,10 +282,7 @@
                     hasControls:false,
                     hasBorders:false
                 });
-                //console.log(self.canvas);
                 self.canvas.add(imgobj);
-                //console.log(self.questionScore);
-                //console.log(self.selectedOption);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
                     fontFamily:'Heiti',
@@ -323,7 +319,6 @@
                     total:totalScore,
                     image:renderPic
                 },function(data){
-                    //console.log(data);
                     if(data.status==1){
                         //override share link
                         weixinshare({
@@ -362,7 +357,6 @@
         //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){
-                    console.log(data);
                     var listHtml = '';
                     for(var z=0;z<data.list.length;z++){
                         listHtml = listHtml+'<li class="item">'+
@@ -404,7 +398,17 @@
             Common.gotoPin(7);
         });
 
+    //    play again
+        $('#pin-upload .btn-playagain').on('touchstart',function(){
+            self.playAgain();
+        });
 
+
+    };
+
+    //play again, reset all step
+    controller.prototype.playAgain = function(){
+        window.location.reload();
     };
 
     //count down
@@ -436,8 +440,6 @@
             totalFrames: 24,
             time: 1,
             processAnimation: function(){
-                //console.log(self.loadingImg[j]);
-                //$('.preload').css('background-image','url("'+self.loadingImg[j]+'")');
                 $('.bg img').attr('src',self.loadingImg[j]);
                 if(increase){
                     j++;
@@ -450,7 +452,6 @@
                         increase=true;
                     }
                 }
-                //console.log(j);
 
             },
             doneAnimation: function(){
@@ -482,7 +483,6 @@
                         hasControls:false,
                         hasBorders:false
                     });
-                    console.log(self.canvas);
                     self.canvas.add(imgobj);
 
                 });

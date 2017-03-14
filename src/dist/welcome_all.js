@@ -796,8 +796,6 @@ function weixinshare(obj){
             wx.ready(function(){
 
                 // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
-
-
                 wx.onMenuShareAppMessage({
                     title: obj.title1,
                     desc: obj.des,
@@ -939,7 +937,7 @@ $(document).ready(function(){
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
 
-                //Common.gotoPin(8);
+                //Common.gotoPin(7);
 
                 //bind events
                 self.bindEvent();
@@ -1123,7 +1121,6 @@ $(document).ready(function(){
                 // 这一定不是你的 <85
                 imgSrc = '/src/images/image-overlay3.png';
             }
-            //console.log(imgSrc);
             fabric.Image.fromURL(imgSrc,function(imgobj){
                 var radio = $(window).width()/750;
                 imgobj.scale(radio);
@@ -1132,10 +1129,7 @@ $(document).ready(function(){
                     hasControls:false,
                     hasBorders:false
                 });
-                //console.log(self.canvas);
                 self.canvas.add(imgobj);
-                //console.log(self.questionScore);
-                //console.log(self.selectedOption);
                 var text = new fabric.Text(totalScore.toString(), {
                     //font:'#fe335d',
                     fontFamily:'Heiti',
@@ -1172,7 +1166,6 @@ $(document).ready(function(){
                     total:totalScore,
                     image:renderPic
                 },function(data){
-                    //console.log(data);
                     if(data.status==1){
                         //override share link
                         weixinshare({
@@ -1211,7 +1204,6 @@ $(document).ready(function(){
         //    get ranklist
             Api.rankList(function(data){
                 if(data.status==1){
-                    console.log(data);
                     var listHtml = '';
                     for(var z=0;z<data.list.length;z++){
                         listHtml = listHtml+'<li class="item">'+
@@ -1253,7 +1245,17 @@ $(document).ready(function(){
             Common.gotoPin(7);
         });
 
+    //    play again
+        $('#pin-upload .btn-playagain').on('touchstart',function(){
+            self.playAgain();
+        });
 
+
+    };
+
+    //play again, reset all step
+    controller.prototype.playAgain = function(){
+        window.location.reload();
     };
 
     //count down
@@ -1285,8 +1287,6 @@ $(document).ready(function(){
             totalFrames: 24,
             time: 1,
             processAnimation: function(){
-                //console.log(self.loadingImg[j]);
-                //$('.preload').css('background-image','url("'+self.loadingImg[j]+'")');
                 $('.bg img').attr('src',self.loadingImg[j]);
                 if(increase){
                     j++;
@@ -1299,7 +1299,6 @@ $(document).ready(function(){
                         increase=true;
                     }
                 }
-                //console.log(j);
 
             },
             doneAnimation: function(){
@@ -1331,7 +1330,6 @@ $(document).ready(function(){
                         hasControls:false,
                         hasBorders:false
                     });
-                    console.log(self.canvas);
                     self.canvas.add(imgobj);
 
                 });
