@@ -97,6 +97,7 @@ class PageController extends Controller {
 	}
 
 	public function clearDataAction() {
+		exit;
 		$databaseAPI = new \Lib\DatabaseAPI();
 		$databaseAPI->clearMake();
 		$data = array('status' => 1, 'msg' => 'clear');
