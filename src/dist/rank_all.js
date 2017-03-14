@@ -725,6 +725,11 @@ $(document).ready(function(){
             Common.gotoPin(0);
         });
 
+        //    play again
+        $('#pin-upload .btn-playagain').on('touchstart',function(){
+            window.location.href = location.origin;
+        });
+
     };
 
         $(document).ready(function(){

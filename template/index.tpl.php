@@ -203,6 +203,7 @@
                     <span class="btn-prev btn-ok">确认</span>
                     <span class="btn-next btn-scorelists">排行榜</span>
                     <span class="btn-next btn-share">趣秀自己</span>
+                    <span class="btn-next btn-playagain">再测一次</span>
                 </div>
                 <div class="tips">
                     <img src="/src/images/tips-upload.png" alt="upload"/>

@@ -1181,6 +1181,7 @@ html, body {
   position: absolute;
   bottom: -1rem;
   width: 100%;
+  text-align: center;
 }
 #pin-upload .buttons .btn-next {
   display: none;
@@ -1192,14 +1193,31 @@ html, body {
   display: inline-block;
 }
 #pin-upload .btn-again, #pin-upload .btn-ok, #pin-upload .btn-scorelists, #pin-upload .btn-share, #pin-upload .btn-play {
-  width: 2rem;
+  width: 1.8rem;
   height: 0.8rem;
   background: url("../../images/buttons.png") no-repeat;
   -webkit-background-size: 2.55rem;
   background-size: 2.55rem;
   text-indent: -999em;
   display: inline-block;
-  background-position: 0.3rem -1.6rem;
+  background-position: 0rem -1.6rem;
+}
+#pin-upload .btn-again {
+  float: left;
+  margin-left: 0.3rem;
+}
+#pin-upload .btn-ok {
+  float: right;
+  margin-right: 0.3rem;
+}
+#pin-upload .btn-playagain {
+  width: 1.68rem;
+  height: 0.8rem;
+  background: url("../../images/btn-playagain.png") bottom center no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  text-indent: -999em;
+  display: inline-block;
 }
 #pin-upload .btn-play {
   background-position: .3rem -3.4rem;
@@ -1207,17 +1225,17 @@ html, body {
   margin: 0 auto;
   display: block;
 }
-#pin-upload .btn-ok, #pin-upload .btn-share {
+#pin-upload .btn-ok {
   position: relative;
   background-position: 0.3rem -2.4rem;
   float: right;
 }
 #pin-upload .btn-scorelists {
-  background-position: 0.3rem -5rem;
+  background-position: 0 -5rem;
 }
 #pin-upload .btn-share {
-  background-position: 0.3rem -5.8rem;
-  width: 2.6rem;
+  background-position: 0 -5.8rem;
+  width: 2rem;
 }
 
 #pin-result-lists .btn-close {

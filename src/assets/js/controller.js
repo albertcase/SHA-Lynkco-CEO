@@ -90,7 +90,7 @@
                 $('.wrapper').addClass('fadein');
                 self.doGenerateAni();
 
-                //Common.gotoPin(8);
+                //Common.gotoPin(7);
 
                 //bind events
                 self.bindEvent();
@@ -404,7 +404,17 @@
             Common.gotoPin(7);
         });
 
+    //    play again
+        $('#pin-upload .btn-playagain').on('touchstart',function(){
+            self.playAgain();
+        });
 
+
+    };
+
+    //play again, reset all step
+    controller.prototype.playAgain = function(){
+        window.location.reload();
     };
 
     //count down
