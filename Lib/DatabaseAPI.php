@@ -165,10 +165,11 @@ class DatabaseAPI {
 	 * 
 	 */
 	public function insertMake($data){
-		if($this->loadMakeByUid($data->uid)) {
+		if($rs = $this->loadMakeByUid($data->uid)) {
 			$this->updateAnswer($data);
+			return $rs->id;
 		} else {
-			$this->insertAnswer($data);
+			return $this->insertAnswer($data);
 		}
 	}
 
