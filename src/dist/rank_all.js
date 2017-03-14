@@ -653,7 +653,7 @@ $(document).ready(function(){
                     var listHtml = '';
                     for(var z=0;z<data.list.length;z++){
                         listHtml = listHtml+'<li class="item">'+
-                            '<span class="num">'+z+'/</span>'+
+                            '<span class="num">'+(z+1)+'/</span>'+
                             '<span class="name">'+data.list[z].nickname+'</span>'+
                             '<span class="score">'+data.list[z].total+'</span>'+
                             '</li>';
