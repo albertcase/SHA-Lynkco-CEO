@@ -61,7 +61,7 @@ class WechatController extends Controller {
 		return $wechatJSSDKAPI->getJSSDKConfig(APPID, $jsapi_ticket, $url);
 	}
 
-	public function jssdkApi() {
+	public function jssdkApiAction() {
 		$RedisAPI = new \Lib\RedisAPI();
 		$jsapi_ticket = $RedisAPI->getJSApiTicket();
 		$wechatJSSDKAPI = new \Lib\JSSDKAPI();
