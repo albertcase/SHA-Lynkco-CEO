@@ -10,11 +10,12 @@ class JSSDKAPI extends Base {
     return json_decode($ticket);
   }
 
-  public function getJSSDKConfig($appid, $jsApiTicket, $url, $noncestr = 'KiehlsDFsf') {
+  public function getJSSDKConfig($appid, $jsApiTicket, $url, $debug = false, $noncestr = 'KiehlsDFsf') {
     $nowtime = time();
     $ticketstr = "jsapi_ticket={$jsApiTicket}&noncestr={$noncestr}&timestamp={$nowtime}&url={$url}";
     $signature = sha1($ticketstr);
     return array(
+      'debug' => $debug,
       'appId' => $appid,
       'timestamp' => $nowtime,
       'nonceStr' => $noncestr,

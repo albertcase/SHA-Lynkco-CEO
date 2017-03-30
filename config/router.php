@@ -23,3 +23,4 @@ $routers['/api/clearmake'] = array('CampaignBundle\Page', 'clearmake');
 $routers['/jssdk'] = array('CampaignBundle\Page', 'jssdkConfigJs');
 $routers['/rank'] = array('CampaignBundle\Page', 'rank');
 $routers['/cleardata'] = array('CampaignBundle\Page', 'clearData');
+$routers['/ws/jssdk'] = array('WechatBundle\Wechat', 'jssdkApi');
