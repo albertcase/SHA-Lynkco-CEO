@@ -20,6 +20,22 @@ class JSSDKAPI extends Base {
       'timestamp' => $nowtime,
       'nonceStr' => $noncestr,
       'signature' => $signature,
+      'jsApiList' => array(
+        "checkJsApi",
+        "onMenuShareTimeline",
+        "onMenuShareAppMessage",
+        "onMenuShareQQ",
+        "onMenuShareWeibo",
+        "hideMenuItems",
+        "showMenuItems",
+        "hideAllNonBaseMenuItem",
+        "showAllNonBaseMenuItem",
+        "getNetworkType",
+        "openLocation",
+        "getLocation",
+        "hideOptionMenu",
+        "showOptionMenu",
+        "closeWindow")
       );
   }
 
