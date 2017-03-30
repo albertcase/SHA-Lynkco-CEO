@@ -67,7 +67,7 @@ class WechatController extends Controller {
 		$wechatJSSDKAPI = new \Lib\JSSDKAPI();
 		$wechajs ='dd';
 		$debug = false;
-		if(isset(isset($_GET['debug']) && $_GET['debug'])) {
+		if(isset($_GET['debug'] && $_GET['debug']) {
 			$debug = true;
 		}
 		$url = $_SERVER['HTTP_REFERER'];
