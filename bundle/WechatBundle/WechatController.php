@@ -75,6 +75,7 @@ EOF;
 		$url = $_SERVER['HTTP_REFERER'];
 		$config = $wechatJSSDKAPI->getJSSDKConfig(APPID, $jsapi_ticket, $url, $debug);
 		$js_string = $wechajs . "\n" . "wx.config(".json_encode($config, JSON_UNESCAPED_UNICODE).");\n";
+		header("Content-type: application/json");
 		return $this->Response($js_string);
 	}
 	
